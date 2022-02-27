@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Yantramanav:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 *{
     margin: 0;
@@ -12,6 +13,46 @@
     height: 100vh;
     width: 100vw;
     padding: 0 10rem 0 10rem;
+
+    main{
+        display: flex;
+        article{
+            // width: 90%;
+            max-width: 50vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0rem 0rem 0rem 0rem;
+            font-family: 'Poppins',
+            sans-serif;
+            .pre{
+                padding-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+            h1{
+                padding-bottom: 1.5rem;
+                font-size: 2.5rem;
+            }
+            .post{
+                width: 80%;
+                margin-bottom: 10rem;
+            }
+            .cta{
+                a{
+                    height: 48px;
+                    width: 10rem;
+                    display: inline-block;
+                    background-color: #313131;
+                    color: #fff;
+                }
+            }
+
+        }
+        height: calc(100vh - 12vh);
+
+    }
+
 }
 nav{
     
@@ -67,4 +108,6 @@ nav{
 h1{
     font-family: 'Yantramanav',
     sans-serif;
+    font-size: 2.1rem;
+    color: #313131;
 }
