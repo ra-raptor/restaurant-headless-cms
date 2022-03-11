@@ -6,14 +6,23 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.two{
+    width: 100%;
+    height: 100vh;
+}
 .hero{
     background: url('../../images/pattern.svg');
     background-size: 100%;
     height: 100vh;
-    width: 100vw;
-    padding: 0 10rem 0 10rem;
-
+    width: 100%;
+    
+    .wrapper-hero{
+        // overflow: hidden;
+        background: url('../../images/blob.svg') no-repeat;
+        padding: 0 10rem 0 10rem;
+        background-position: -120% 50%;
+        background-size: 140%;
+    }
     main{
         display: flex;
         article{
@@ -32,11 +41,13 @@
             }
             h1{
                 padding-bottom: 2rem;
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             .post{
-                // width: 70%;
-                margin-bottom: 8rem;
+                width: 85%;
+                font-size: 1.1rem;
+                margin-bottom: 7.5rem;
+                text-align: justify;
             }
             .cta{
                 display: flex;
@@ -54,11 +65,21 @@
                         width: 10rem;
                         border-radius: 15px;
                         &.primary{
-                           background-color: #e2ab44;
+                           background-color: #FF0066;
+                        //    background-color: #e2ab44;
+                           &:hover{
+                               border: 1px solid rgb(243, 168, 168);
+                               box-shadow: 1px 1px 25px 0px #FF0066d2;
+                               transition: 0.5s;
+                           }
                         }
                         &.secondary{
-                            border: 1px solid #e2ab44;
-                            color: #e2ab44;
+                            border: 1px solid #FF0066;
+                            color: #FF0066;
+                            &:hover {
+                                box-shadow: 1px 1px 25px 0px #FF0066d2;
+                                transition: 0.5s;
+                            }
                         }
                     }
                 }
@@ -69,6 +90,18 @@
 
     }
 
+}
+.w1{
+    width: 100%;
+    background: url('../../images/wave1.svg');
+    background-size: cover;
+    height: 250px;
+    transform: translateY(-100%);
+}
+.filler{
+    width: 100%;
+    background-color: #FF0066;
+    height: 75vh;
 }
 nav{
     
@@ -86,8 +119,9 @@ nav{
             position: relative;
         }
         .active{
-            border-bottom: 3px solid orange;
-            color: rgb(71, 48, 4)
+            border-bottom: 3px solid #FF0066;
+            color: rgb(71, 48, 4);
+
         }
         li{
             height: auto;

@@ -2,9 +2,11 @@ import React from 'react'
 import "./landing.scss"
 function Landing() {
   return (
+      <>
     <div className='hero'>
-        <nav>
-            <p>Restaurant</p>
+        <div className="wrapper-hero">
+            <nav>
+            <p>Chillax Canteen</p>
             <ul>
                 <li className='active'>Home</li>
                 <li>Menu</li>
@@ -26,12 +28,21 @@ function Landing() {
 
                 
                 </article>
-            <aside><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, a?</h1></aside>
+            <aside>
+                {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, a?</h1> */}
+            
+            <img width={300} src="" alt=""  />
+            </aside>
             
         </main>
+            </div>
+        
         
     </div>
-    
+    {/* <div className="w1"></div> */}
+    <div className="filler"></div>
+    <div className="two"></div>
+    </>
   )
 }
 
