@@ -31,20 +31,36 @@
                 font-size: 1.2rem;
             }
             h1{
-                padding-bottom: 1.5rem;
+                padding-bottom: 2rem;
                 font-size: 2.5rem;
             }
             .post{
-                width: 80%;
-                margin-bottom: 10rem;
+                // width: 70%;
+                margin-bottom: 8rem;
             }
             .cta{
+                display: flex;
+                gap : 2rem;
                 a{
-                    height: 48px;
-                    width: 10rem;
-                    display: inline-block;
-                    background-color: #313131;
+                    
+                    // display: inline-block;
                     color: #fff;
+                    text-decoration: none;
+                    div{
+                        display: grid;
+                        place-items: center;
+                        // background-color: #e2ab44;
+                        height: 48px;
+                        width: 10rem;
+                        border-radius: 15px;
+                        &.primary{
+                           background-color: #e2ab44;
+                        }
+                        &.secondary{
+                            border: 1px solid #e2ab44;
+                            color: #e2ab44;
+                        }
+                    }
                 }
             }
 

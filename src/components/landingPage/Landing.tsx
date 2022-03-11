@@ -14,12 +14,14 @@ function Landing() {
         </nav>
         <main>
             <article>
-                <p className='pre'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p className='pre'>All You Need is Good Food and a Dream..</p>
                 {/* where taste meets tradiotion */}
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, a?</h1>
-                <p className='post'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus pariatur, officia ab sed doloremque non. Natus pariatur, officia ab sed doloremque non. Natus pariatur, officia ab sed doloremque non.</p>
+                <h1>A Day Without Cusine is Like a Day Without Sunshine.</h1>
+                <p className='post'>Chillax Canteen is the one stop shop for food, comfort and taste. It's a place where taste meets tradition.
+                Order, takeout or dine  the best Indian, Italian and French Cusine in town. 
+                 </p>
                 <div className='cta'>
-                    <a href="#">ORDER NOW</a><a href='#'>VIEW MENU</a>
+                    <a href="#"><div className='primary'>ORDER NOW</div></a><a href='#'><div className='secondary'>VIEW MENU</div></a>
                 </div>
 
                 
