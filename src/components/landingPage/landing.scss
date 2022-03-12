@@ -113,7 +113,42 @@
     align-items: center;
     background-color: #FF0066;
     height: 100vh;
-    padding: 0 10rem 0 10rem;
+    padding: 0 2rem 0 4rem;
+
+    article{
+        height: 100vh;
+        padding: 4rem 2rem 4rem 4rem;
+        h3{
+            font-size:1.8rem;
+            color : white;
+            font-family: 'Yantramanav',
+            sans-serif;
+            font-weight : 400;
+        }
+        .cards{
+            width : 100%;
+            display: flex;
+            justify-content: space-between;
+            gap : 2.2rem;
+            margin-top: 2rem;
+            .card{
+                min-width: 250px;
+                min-height: 300px;
+                background-color: #fff;
+                box-shadow: 5px 5px 10px #ffffff55;
+                border-radius: 15px;
+            }
+        }
+        
+        //display: flex;
+        //flex-direction: column;
+        //justify-content: flex-start;
+        h1{
+        color: white;
+        font-size : 2.6rem;
+
+        }
+    }
     .sideimage{
         padding: 2rem;
 
