@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from './hero'
 import {StaticImage} from 'gatsby-plugin-image'
 import "./landing.scss"
+import {GiFarmTractor} from 'react-icons/gi'
 function Landing() {
   return (
       <>
@@ -15,6 +16,13 @@ function Landing() {
         <article>
             <h3>About Us</h3>
             <h1>Why are we the Best?</h1>
+            <div className="points">
+                <p><span><GiFarmTractor /></span> Organic food</p>
+                <p><span><GiFarmTractor /></span> Organic food</p>
+                <p><span><GiFarmTractor /></span> Organic food</p>
+                <p><span><GiFarmTractor /></span> Organic food</p>
+                
+            </div>
             <div className="cards">
                 <div className="card">s</div>
                 <div className="card"></div>

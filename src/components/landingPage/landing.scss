@@ -125,12 +125,29 @@
             sans-serif;
             font-weight : 400;
         }
+        .points{
+            margin-top: 2rem;
+            p{
+                display: flex;
+                align-items: center;
+                gap : 1rem;
+                padding: 0.3rem;
+                font-family: 'Poppins',
+                sans-serif;
+                font-weight: 300;
+            }
+            span{
+                font-size: 1.3rem;
+            }
+            color : #fff;
+            font-size: 1.3rem;
+                }
         .cards{
             width : 100%;
             display: flex;
             justify-content: space-between;
             gap : 2.2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
             .card{
                 min-width: 250px;
                 min-height: 300px;
