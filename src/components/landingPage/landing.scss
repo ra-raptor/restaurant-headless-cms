@@ -276,7 +276,15 @@ nav{
         sans-serif;
     }
 }
-
+.wave3{
+    width: 100%;
+    background: url('../../images/wave3.svg');
+    background-size: cover;
+    height: 250px;
+    position: relative;
+    transform: translateY(-50%);
+    z-index: -1;
+}
 h1{
     font-family: 'Yantramanav',
     sans-serif;
