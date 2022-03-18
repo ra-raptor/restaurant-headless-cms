@@ -27,16 +27,18 @@ function Landing() {
                 
             </div>
             <div className="cards">
-                {/* <div className="card">
+                <div className="card">
                     <StaticImage alt="cherry" width={100} height={100} src="https://img.icons8.com/fluency/144/000000/cherry.png" />
-                </div> */}
+                    <AboutCard title='Organic Sources' subtext='We cook with fresh and organic food, processed under our supervison. We hand pick each of the ingridients for the best taste.' />
+                </div> 
                 <div className="card">
                     <StaticImage alt="cherry" width={100} height={100} src="https://img.icons8.com/fluency/144/000000/deliver-food.png" />
+                    <AboutCard title='Free Delivery' subtext='We provide free home delivery on orders above ₹3000 in a 10Km radius. Our delivery partners will make sure that your order is safe.' />
                 </div>
                 <div className="card">
                      <StaticImage alt="cherry" width={100} height={100} src="https://img.icons8.com/fluency/144/000000/restaurant-table.png" />
+                     <AboutCard title='Dine Comfortably' subtext='We accept both pre booking and spot booking. We make sure that your selected place is clean and hygenic. We also accept customisation requests.' />
                 </div>
-                <AboutCard i={0} alt='organic food' title="Organic Raw Materials" subtext='we use' />
             </div>
             
         </article>

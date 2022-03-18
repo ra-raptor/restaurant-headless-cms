@@ -152,15 +152,40 @@
                 min-width: 250px;
                 min-height: 300px;
                 background-color: #fff;
-                box-shadow: 5px 5px 10px #ffffff55;
+                box-shadow: 5px 5px 10px #e77a7a55;
                 border-radius: 15px;
                 display : flex;
                 flex-direction : column;
                 align-items: center;
                 justify-content: space-around;
+                &:hover{
+                    box-shadow: 5px 5px 30px #c44646e1;
+                }
                 img{
                     width: 100px;
                     height: 100px;
+                }
+                .about-card{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    padding: 1rem;
+                    align-items: center;
+                    h2{
+                        font-size: 1.6rem;
+                        font-family: 'Yantramanav',
+                        sans-serif;
+                        color: #313131;
+                        font-weight: 400;
+                        padding-bottom: .8rem;
+                    }
+                    p{
+                        font-family: 'Yantramanav',
+                        sans-serif;
+                        color: #5c5c5c;
+                        font-weight: 300;
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -175,8 +200,8 @@
         }
     }
     .sideimage{
-        padding: 2rem;
-
+        padding: 2rem 1rem;
+        min-width: 22vw;
         // transform: translateX(5%);
     }
 }
