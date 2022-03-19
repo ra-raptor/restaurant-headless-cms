@@ -9,10 +9,24 @@ function Landing() {
     <>
         <Hero />
         <Services />
-        <div className="wave3"> 
-        {/* <StaticImage alt="wave" src='../../images/wave3.svg' /> */}
+        <div className="wave3"> </div>
+        
+        <div className='top'>
+            <h2>Today's Deals</h2>
+            <div className="cards">
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+            </div>
         </div>
         <div className="two"></div>
+        
     </>
   )
 }
