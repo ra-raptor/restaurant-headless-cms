@@ -3,6 +3,7 @@ import Hero from './hero'
 import {StaticImage} from 'gatsby-plugin-image'
 import "./landing.scss"
 import Services from './services'
+import Testinmonial from './testinmonial'
 
 function Landing() {
   return (
@@ -25,6 +26,7 @@ function Landing() {
                 <div className="card"></div>
             </div>
         </div>
+        <Testinmonial />
         <div className="two"></div>
         
     </>
