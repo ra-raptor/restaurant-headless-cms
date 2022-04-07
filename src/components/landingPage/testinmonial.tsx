@@ -1,45 +1,13 @@
 import React from 'react'
 import './testimonial.scss'
-import TestimonialCard from './testimonialCard'
-import {StaticImage,GatsbyImage, IGatsbyImageData} from 'gatsby-plugin-image'
 
-import { useStaticQuery, graphql } from "gatsby"
+import {StaticImage} from 'gatsby-plugin-image'
+
+
 import {users} from './users';
 function Testinmonial() {
-    console.log(users);
-    const data  = useStaticQuery(graphql`query MyQuery {
-  allFile(filter: {relativeDirectory: {eq: "testimonial-user-pics"}}) {
-    nodes {
-      id
-    }
-    edges {
-      node {
-        id
-        childImageSharp {
-          fixed {
-            ...GatsbyImageSharpFixed
-            originalName
+    
 
-          }
-        }
-      }
-    }
-  }
-}`)
-const edges = data.allFile.edges;
-interface ItemType{
-    node : {
-        id : string,
-        childImageSharp : {
-            fixed : {
-                base64 : string,
-                width : number,
-                height : number,
-                originalName : string
-            }
-        }
-    }
-}
   return (
     <div className='testimonial-wrapper'>
         <h3>Testimonial</h3>
