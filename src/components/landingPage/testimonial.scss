@@ -25,6 +25,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
+        // border: 1px solid #ff006655;
+        // border-radius: 45px;
     }
 }
 
@@ -36,11 +38,15 @@
     // border: 1px solid #e94788;
     justify-content: space-between;
     padding: 2rem 4rem;
+    .image-wrapper{
+        width: 250px;
+        margin-right: 1.5rem;
+    }
     img{
         border-top-left-radius: 45px;
         border-top-right-radius: 45px;
         border-bottom-left-radius: 45px;
-        margin-right: 1.5rem;
+        
     }
 
     .details{
