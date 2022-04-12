@@ -4,6 +4,7 @@ import Hero from './hero'
 import "./landing.scss"
 import Services from './services'
 import Testinmonial from './testinmonial'
+import Footer from './footer'
 
 function Landing() {
   return (
@@ -27,7 +28,7 @@ function Landing() {
             </div>
         </div>
         <Testinmonial />
-        <div className="two"></div>
+        <Footer />
         
     </>
   )

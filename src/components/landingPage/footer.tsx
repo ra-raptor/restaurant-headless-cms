@@ -1,11 +1,45 @@
 import React, { Component } from 'react'
+import { GoLocation }from 'react-icons/go'
+import { IoCall }from 'react-icons/io5'
+import { MdEmail }from 'react-icons/md'
 
-export class footer extends Component {
+export class Footer extends Component {
   render() {
     return (
-      <div>footer</div>
+      <div className='footer'>
+        <div className="grid">
+          <div className="text">
+            <h2>Chillax</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus hic, culpa veritatis reprehenderit maxime pariatur repellat quidem incidunt nostrum facere.</p>
+          </div>
+          <div className="contact">
+            <h3>Contact Us</h3>
+            <ul>
+              <li> <span> <GoLocation /> </span> Kolkata, IN</li>
+              <li> <span> <IoCall /> </span> +91-999-999-9999</li>
+              <li> <span> <MdEmail /> </span> chillax@canteen.in</li>
+              
+            </ul>
+          </div>
+          <div className="useful-links">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">Payemnt Methods</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Careers</a></li>
+              
+            </ul>
+          </div>
+          <div className="map-wrapper">
+            <h3>Map</h3>
+            <div className="map"></div>
+          </div>
+        </div>
+        <div className="cop">&copy; 2022 Chillax Canteen</div> 
+      </div>
     )
   }
 }
 
-export default footer
+export default Footer
