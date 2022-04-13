@@ -30,6 +30,10 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-images": "^1.2.0-beta.7",
+    "react-leaflet": "^3.2.5",
     "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.9"
   }
 }
