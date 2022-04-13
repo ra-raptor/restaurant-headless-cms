@@ -75,7 +75,7 @@
 }
 
 .footer{
-    padding: 5rem 10rem 5rem 10rem;
+    padding: 5rem 10rem 0rem 10rem;
     background-color: #313131;
     // background-color: #e94788;
     .grid{
@@ -130,5 +130,14 @@
         height: 130px;
         // background-color: #ff5;
         overflow: hidden;
+        border: 1px solid #ffffff66;
+    }
+    .cop{
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        font-family: 'Quicksand',
+            sans-serif;
+            color: #e0dfdf;
     }
 }
