@@ -125,8 +125,10 @@
 
     }
     .map{
-        width: 100%;
+       
+        max-width: 300px;
         height: 130px;
-        background-color: #ff5;
+        // background-color: #ff5;
+        overflow: hidden;
     }
 }

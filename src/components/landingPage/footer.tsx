@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { GoLocation }from 'react-icons/go'
 import { IoCall }from 'react-icons/io5'
 import { MdEmail }from 'react-icons/md'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export class Footer extends Component {
   render() {
@@ -33,7 +34,16 @@ export class Footer extends Component {
           </div>
           <div className="map-wrapper">
             <h3>Map</h3>
-            <div className="map"></div>
+            {/* 22.5448° N, 88.3426° E */}
+
+            <div className="map">
+              <MapContainer center={[22.5448, 88.3426]} zoom={13}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+              </MapContainer>
+            </div>
           </div>
         </div>
         <div className="cop">&copy; 2022 Chillax Canteen</div> 
