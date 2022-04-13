@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { GoLocation }from 'react-icons/go'
 import { IoCall }from 'react-icons/io5'
 import { MdEmail }from 'react-icons/md'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer } from 'react-leaflet'
 
 export class Footer extends Component {
   render() {
@@ -34,8 +34,6 @@ export class Footer extends Component {
           </div>
           <div className="map-wrapper">
             <h3>Map</h3>
-            {/* 22.5448° N, 88.3426° E */}
-
             <div className="map">
               <MapContainer center={[22.5448, 88.3426]} zoom={13}>
                 <TileLayer
