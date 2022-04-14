@@ -315,7 +315,112 @@ h1{
     .card{
         border-radius: 15px;
         min-width: 300px;
+        cursor: pointer;
         min-height: 300px;
-        background-color: rgb(95, 90, 95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        background-color: #fff;
+        box-shadow: 5px 5px 30px #82828212;
+        padding: 1rem;
+        .row{
+            
+            width: 100%;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            min-width: 250px;
+        }
+        .title-wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem;
+            img{
+
+                border-radius: 0;
+                width: 40px;
+                object-fit: contain;
+                
+            }
+        }
+        h3{
+            font-family: 'Quicksand',
+            sans-serif;
+            font-size: 1.4rem;
+            padding: 0.5rem;
+            text-align: center;
+            
+        }
+        p{
+            font-family: 'Quicksand',
+            sans-serif;
+            font-size: 1rem;
+            padding: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            text-align: center;
+        }
+        .nutrition{
+            padding: 0.2rem;
+            text-align: left;
+        }
+        .col>p{
+            text-align: left;
+            padding: 0.2rem;
+        }
+        .label{
+            font-size: 0.8rem;
+            padding: 0rem;
+            color: rgb(56, 56, 56);
+        }
+        .action{
+            
+            font-size: 1.2rem;
+        }
+        .price{
+            color: #FF0066;
+        }
+        &:hover{
+            box-shadow: 10px 10px 10px #ff006612;
+        }
+        .img-wrapper{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            // border: 1px solid green;
+        }
+        img{
+            width: 70%;
+            aspect-ratio: 440/300;
+            border-radius: 15px;
+            // border: 1px solid red;
+            margin: 0 auto;
+        }
+    }
+    .add-to-cart{
+        font-family: 'Yantramanav',
+            sans-serif;
+        border: 1px solid #FF0066;
+        color: #ff0040;
+        padding: 0.3rem 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 20px;
+        &:hover{
+            border: 1px solid rgb(243, 168, 168);
+            box-shadow: 1px 1px 25px 0px #ff006656;
+            transition: 0.5s;
+        }
+       
     }
 }
