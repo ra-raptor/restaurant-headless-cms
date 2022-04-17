@@ -1,5 +1,6 @@
 import React from 'react'
 import {StaticImage} from 'gatsby-plugin-image'
+import {Link} from 'gatsby'
 function Hero() {
   return (
         <div className='hero'>
@@ -8,7 +9,7 @@ function Hero() {
             <p>Chillax Canteen</p>
             <ul>
                 <li className='active'>Home</li>
-                <li>Menu</li>
+                <Link to="/menu"><li>Menu</li></Link>
                 {/* <li><input type="text" /></li> */}
                 <li>Cart</li>
             </ul>

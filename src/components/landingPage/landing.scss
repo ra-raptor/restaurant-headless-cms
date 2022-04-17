@@ -206,7 +206,10 @@
     }
 }
 nav{
-    
+    a{
+        text-decoration: none;
+        color: #000;
+    }
     height: 12vh;
     // background: #ffffff;
     display: flex;
@@ -236,6 +239,7 @@ nav{
             height: 2px;
             background-color: #000;
             position: relative;
+            
         }
         .active{
             border-bottom: 3px solid #FF0066;
