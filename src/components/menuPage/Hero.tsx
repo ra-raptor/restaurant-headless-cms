@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import './menu.scss'
+import { IoMdCart } from 'react-icons/io'
 
 function Hero() {
   return (
@@ -11,7 +12,7 @@ function Hero() {
             <Link  to="/"><li >Home</li></Link>
                 <li className='active'>Menu</li>
                 {/* <li><input type="text" /></li> */}
-                <li>Cart</li>
+                <li><IoMdCart /></li>
             </ul>
         </nav>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {StaticImage} from 'gatsby-plugin-image'
 import {Link} from 'gatsby'
+import {IoMdCart} from 'react-icons/io'
 function Hero() {
   return (
         <div className='hero'>
@@ -11,7 +12,7 @@ function Hero() {
                 <li className='active'>Home</li>
                 <Link to="/menu"><li>Menu</li></Link>
                 {/* <li><input type="text" /></li> */}
-                <li>Cart</li>
+                <li><IoMdCart /></li>
             </ul>
         </nav>
         <main>
