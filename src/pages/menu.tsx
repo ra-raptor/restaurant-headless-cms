@@ -1,8 +1,9 @@
 import React from 'react'
+import Hero from '../components/menuPage/Hero'
 
 function menu() {
   return (
-    <div>menu</div>
+    <Hero />
   )
 }
 
