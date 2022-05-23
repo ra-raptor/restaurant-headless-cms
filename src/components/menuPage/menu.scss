@@ -1,3 +1,62 @@
 .hero-menu{
     padding: 0rem 10rem;
+    width: 100%;
+    .search{
+        padding: 1rem 0rem;
+       
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+       .input-container{
+           height: 40px;
+           width: 60%;
+           flex: 6;
+           position: relative;
+           svg{
+               position: absolute;
+               top : 13px;
+               left : 15px;
+               color: rgba(50, 50, 50, 0.419);
+               font-size: 0.8rem;
+               
+           }
+           input{
+               padding-left: 40px;
+               border: 1px solid rgba(85, 85, 85, 0.378);
+                height: 40px;
+                border-radius:5px 0px 0px 5px;
+                font-size: 1.1rem;
+                width: 100%;
+           }
+       }
+       button{
+           flex: 1;
+           height: 40px;
+           padding: 0;
+           box-sizing: border-box;
+           font-size: 1.1rem;
+           background-color: #FF0066;
+           border-radius: 0 5px 5px 0;
+           color: white;
+           border: 1px solid rgba(85, 85, 85, 0.378);
+           cursor: pointer;
+           &:hover{
+               background-color: #FF0066d2;
+           }
+       }
+      
+    }
+    main{
+        display: flex;
+        .sidebar{
+            width: 20vw;
+            min-width: 200px;
+            background-color: red;
+        }
+        .show{
+            width: 80%;
+        }
+    }
 }
+
