@@ -344,6 +344,8 @@ h1{
             align-items: center;
             justify-content: center;
             padding: 0.2rem;
+            width: 100%;
+            flex : 1;
             img{
 
                 border-radius: 0;
@@ -358,6 +360,7 @@ h1{
             font-size: 1.4rem;
             padding: 0.5rem;
             text-align: center;
+            width: 100%;
             
         }
         p{
@@ -368,6 +371,9 @@ h1{
             padding-left: 1rem;
             padding-right: 1rem;
             text-align: center;
+        }
+        p.subtext{
+            min-height: 60px;
         }
         .nutrition{
             padding: 0.2rem;
@@ -416,6 +422,8 @@ h1{
         color: #ff0040;
         padding: 0.3rem 1rem;
         margin-top: 2rem;
+        flex-grow: 100%;
+        width: 100%;
         margin-bottom: 1rem;
         text-align: center;
         font-weight: 600;

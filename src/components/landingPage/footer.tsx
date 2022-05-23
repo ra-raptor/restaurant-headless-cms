@@ -3,6 +3,7 @@ import { GoLocation }from 'react-icons/go'
 import { IoCall }from 'react-icons/io5'
 import { MdEmail }from 'react-icons/md'
 import { MapContainer, TileLayer } from 'react-leaflet'
+import Map from './map'
 
 function Footer() {
   const buildMap = () => {
@@ -48,7 +49,8 @@ function Footer() {
         <div className="map-wrapper">
           <h3>Map</h3>
           <div className="map">
-            {buildMap()}
+            {/* {buildMap()} */}
+            <Map />
           </div>
         </div>
       </div>

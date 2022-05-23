@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'gatsby'
 import './menu.scss'
 import { IoMdCart } from 'react-icons/io'
+import Map from '../landingPage/map'
 
 function Hero() {
   return (
@@ -15,6 +16,9 @@ function Hero() {
                 <li><IoMdCart /></li>
             </ul>
         </nav>
+        <div className="banner">
+          {/* <Map /> */}
+        </div>
     </div>
   )
 }

@@ -44,7 +44,7 @@ function ProductCard({card}:CardElType) {
             }
           </div>
           
-          <p>{textsub.content[0].content[0].value}</p>
+          <p className='subtext'>{textsub.content[0].content[0].value}</p>
           <div className="row">
             <div className="col">
               <p className='label'> Category  </p>
