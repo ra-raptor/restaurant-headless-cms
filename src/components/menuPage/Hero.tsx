@@ -26,7 +26,7 @@ function Hero() {
         </section>
         <main>
           <div className="sidebar">
-            <div>Categories</div>
+            <h4>Categories</h4>
             <div></div>
             <div></div></div>
           <section className='show'>

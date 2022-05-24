@@ -1,7 +1,13 @@
+//Poppins
+//Quicksand
+//Yantramanav
+
 .hero-menu{
     padding: 0rem 10rem;
     width: 100%;
     .search{
+        font-family: 'Yantramanav',
+            sans-serif;
         padding: 1rem 0rem;
        
        display: flex;
@@ -22,6 +28,8 @@
                
            }
            input{
+            font-family: 'Yantramanav',
+            sans-serif;
                padding-left: 40px;
                border: 1px solid rgba(85, 85, 85, 0.378);
                 height: 40px;
@@ -31,6 +39,8 @@
            }
        }
        button{
+        font-family: 'Poppins',
+        sans-serif;
            flex: 1;
            height: 40px;
            padding: 0;
@@ -52,10 +62,17 @@
         .sidebar{
             width: 20vw;
             min-width: 200px;
-            background-color: red;
+            //background-color: red;
+            padding: 1rem;
+            font-family: 'Poppins',sans-serif;
+            h4{
+                color: #666;
+            }
+
         }
         .show{
             width: 80%;
+            border-left: 1px solid #3535356c;
         }
     }
 }
