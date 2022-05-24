@@ -3,6 +3,7 @@ import {Link} from 'gatsby'
 import './menu.scss'
 import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
+import { BsCaretDown } from 'react-icons/bs'
 
 
 function Hero() {
@@ -26,9 +27,42 @@ function Hero() {
         </section>
         <main>
           <div className="sidebar">
-            <h4>Categories</h4>
-            <div></div>
-            <div></div></div>
+            <div className='sidebar-heading'>
+              <h4>Categories</h4>
+              <BsCaretDown />
+            </div>
+            <div className="category-wrapper">
+              <label className="form-control">
+                <input type="checkbox" name="checkbox" />
+                Italian
+              </label>
+
+              <label className="form-control">
+                <input type="checkbox" name="checkbox-checked" />
+                Fastfood
+              </label>
+              <label className="form-control">
+                <input type="checkbox" name="checkbox-checked" />
+                Fastfood
+              </label>
+              <label className="form-control">
+                <input type="checkbox" name="checkbox-checked" />
+                Fastfood
+              </label>
+              <label className="form-control">
+                <input type="checkbox" name="checkbox-checked" />
+                Fastfood
+              </label>
+            </div>
+            <div className='sidebar-heading'>
+              <h4>Price Range</h4>
+              <BsCaretDown />
+            </div>
+            <div className='sidebar-heading'>
+              <h4>Veg</h4>
+              <BsCaretDown />
+            </div>
+          </div>
           <section className='show'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem omnis nostrum dolorum molestiae consequuntur amet, minima quae incidunt perspiciatis voluptatibus rerum itaque nam perferendis. Corporis odit velit ipsum, maxime beatae eligendi ullam aliquid qui totam nesciunt doloribus error voluptatem vitae perferendis temporibus, sunt magnam, dolorum odio nam doloremque sit enim!
           </section>
