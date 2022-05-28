@@ -1,12 +1,37 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import {Link} from 'gatsby'
 import './menu.scss'
 import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 
+interface range_handler_type{
+  
+    target : {
+      value : string
+    }
+  
+}
 
 function Hero() {
+  const min = 0;
+  const max = 1000;
+  const [val1, setval1] = useState(0);
+  const [val2, setval2] = useState(0);
+ 
+
+  const handler1 = (e:range_handler_type) => {
+    const x = parseInt(e.target.value)
+    if(x < val2){
+      setval1(x);
+    }
+  }
+  const handler2 = (e:range_handler_type) => {
+    const x = parseInt(e.target.value)
+    if(x > val1){
+      setval2(x);
+    }
+  }
   return (
     <div className='hero-menu'>
         <nav>
@@ -58,9 +83,24 @@ function Hero() {
               <h4>Price Range</h4>
               <BsCaretDown />
             </div>
+            <p className='slider-text'>₹ {val1} - ₹ {val2}</p>
+            <div className="slider-wrapper">
+              <div className="track"></div>
+              <input  value={val1} onChange={handler1} type="range" id="sl1" min={min} max={max}/>
+              <input type="range" id="sl2" min={min} max={max} value={val2} onChange={handler2} />
+            </div>
+            <div className="rangepadding"></div>
             <div className='sidebar-heading'>
               <h4>Veg</h4>
               <BsCaretDown />
+            </div>
+            <div className="switch-wrapper">
+            <div className="switch-button">
+              <input className="switch-button-checkbox" type="checkbox"></input>
+              <label className="switch-button-label" htmlFor="">
+                <span className="switch-button-label-span">Photo</span></label>
+            </div>
+
             </div>
           </div>
           <section className='show'>
