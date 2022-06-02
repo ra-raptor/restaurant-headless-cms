@@ -95,11 +95,13 @@ function Hero() {
               <BsCaretDown />
             </div>
             <div className="switch-wrapper">
-            <div className="switch-button">
-              <input className="switch-button-checkbox" type="checkbox"></input>
-              <label className="switch-button-label" htmlFor="">
-                <span className="switch-button-label-span">Photo</span></label>
-            </div>
+            <label className="switch">
+                <input type="checkbox" />
+                <div>
+                    <span></span>
+                </div>
+            </label>
+            <p className="switch-text">Pure Veg</p>
 
             </div>
           </div>
