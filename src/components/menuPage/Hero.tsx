@@ -64,16 +64,14 @@ function Hero() {
     }
   `)
 
-  console.log(data);
+  // console.log(data);
   const catArray:Array<string> = [];
   data.allContentfulFood.edges.map((item:catitemType)=>{
-    // console.log(item.node.category);
-    
      catArray.push(item.node.category)
   })
   
   const categories:Array<string> =  Array.from(new Set(catArray));
-  console.log(categories);
+  // console.log(categories);
   
 
   const min = 0;
@@ -81,6 +79,23 @@ function Hero() {
   const [val1, setval1] = useState(0);
   const [val2, setval2] = useState(0);
   const [check, setcheck] = useState(false);
+  const [catValues, setcatValues] = useState<Array<string>>([])
+ 
+  const handleCat = (data:string) => {
+      const t = catValues.filter(x =>  x == data);
+      if(t.length == 0){
+        setcatValues([...catValues,data])
+      }else{
+        setcatValues(catValues.filter(x =>  x != data))
+      }
+      
+      console.log(t);
+      
+      
+      
+      
+    
+  }
  
 
   const handler1 = (e:range_handler_type) => {
@@ -96,10 +111,11 @@ function Hero() {
     }
   }
   const handleCheck = (e:checkbox_handler_type) => {
+    console.log(e);
+    
     const x = (e.target.checked)
     console.log(x)
     setcheck(x)
-    
   }
   return (
     <div className='hero-menu'>
@@ -127,8 +143,8 @@ function Hero() {
             </div>
             <div className="category-wrapper">
               {categories.map((cat)=>{
-                return <label className="form-control">
-                  <input type="checkbox" name="checkbox" />
+                return <label key={cat} className="form-control">
+                  <input type="checkbox" onChange={()=>handleCat(cat)} name="checkbox"   />
                   {cat}
                 </label>
               })}
@@ -161,6 +177,10 @@ function Hero() {
           </div>
           <section className='show'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem omnis nostrum dolorum molestiae consequuntur amet, minima quae incidunt perspiciatis voluptatibus rerum itaque nam perferendis. Corporis odit velit ipsum, maxime beatae eligendi ullam aliquid qui totam nesciunt doloribus error voluptatem vitae perferendis temporibus, sunt magnam, dolorum odio nam doloremque sit enim!
+              <br />
+              {catValues.map((data) => {
+                return <p key={data}>{data}</p>
+              })}
           </section>
         </main>
     </div>
