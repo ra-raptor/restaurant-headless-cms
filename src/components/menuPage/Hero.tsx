@@ -6,11 +6,15 @@ import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 
 interface range_handler_type{
-  
     target : {
       value : string
     }
-  
+}
+
+interface checkbox_handler_type{
+  target : {
+    checked : boolean
+  }
 }
 
 function Hero() {
@@ -18,6 +22,7 @@ function Hero() {
   const max = 1000;
   const [val1, setval1] = useState(0);
   const [val2, setval2] = useState(0);
+  const [check, setcheck] = useState(false);
  
 
   const handler1 = (e:range_handler_type) => {
@@ -31,6 +36,12 @@ function Hero() {
     if(x > val1){
       setval2(x);
     }
+  }
+  const handleCheck = (e:checkbox_handler_type) => {
+    const x = (e.target.checked)
+    console.log(x)
+    setcheck(x)
+    
   }
   return (
     <div className='hero-menu'>
@@ -96,12 +107,12 @@ function Hero() {
             </div>
             <div className="switch-wrapper">
             <label className="switch">
-                <input type="checkbox" />
+                <input checked={check} onChange={handleCheck} type="checkbox" />
                 <div>
                     <span></span>
                 </div>
             </label>
-            <p className="switch-text">Pure Veg</p>
+            <p className="switch-text">{check ? 'Pure Veg' : 'Non Veg'}</p>
 
             </div>
           </div>
