@@ -1,14 +1,43 @@
 import React,{useEffect,useState} from 'react'
-import {Link} from 'gatsby'
+
+import {Link, graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
 import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
-
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 interface range_handler_type{
     target : {
       value : string
     }
+}
+
+interface graphqlDataType{
+  node : {
+    itemName : string,
+    veg : boolean,
+    id : string,
+    nutrition : Array<string>,
+    price : number,
+    category : string,
+    image : {
+      id : string,
+      gatsbyImageData : IGatsbyImageData
+    }
+    subtext : {
+      raw : string
+    }
+  }
+}
+
+interface catitemType{
+    node : {
+      category: string,
+      id: string
+      itemName: string
+      price: number
+      veg: boolean
+  }
 }
 
 interface checkbox_handler_type{
@@ -18,6 +47,35 @@ interface checkbox_handler_type{
 }
 
 function Hero() {
+
+  const data = useStaticQuery(graphql`
+    query MyCatQuery {
+      allContentfulFood {
+        edges {
+          node {
+            id
+            itemName
+            veg
+            price
+            category
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(data);
+  const catArray:Array<string> = [];
+  data.allContentfulFood.edges.map((item:catitemType)=>{
+    // console.log(item.node.category);
+    
+     catArray.push(item.node.category)
+  })
+  
+  const categories:Array<string> =  Array.from(new Set(catArray));
+  console.log(categories);
+  
+
   const min = 0;
   const max = 1000;
   const [val1, setval1] = useState(0);
@@ -68,27 +126,12 @@ function Hero() {
               <BsCaretDown />
             </div>
             <div className="category-wrapper">
-              <label className="form-control">
-                <input type="checkbox" name="checkbox" />
-                Italian
-              </label>
-
-              <label className="form-control">
-                <input type="checkbox" name="checkbox-checked" />
-                Fastfood
-              </label>
-              <label className="form-control">
-                <input type="checkbox" name="checkbox-checked" />
-                Fastfood
-              </label>
-              <label className="form-control">
-                <input type="checkbox" name="checkbox-checked" />
-                Fastfood
-              </label>
-              <label className="form-control">
-                <input type="checkbox" name="checkbox-checked" />
-                Fastfood
-              </label>
+              {categories.map((cat)=>{
+                return <label className="form-control">
+                  <input type="checkbox" name="checkbox" />
+                  {cat}
+                </label>
+              })}
             </div>
             <div className='sidebar-heading'>
               <h4>Price Range</h4>
