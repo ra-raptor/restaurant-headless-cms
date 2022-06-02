@@ -6,6 +6,7 @@ import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import MenuCard from './MenuCard'
 interface range_handler_type{
     target : {
       value : string
@@ -176,8 +177,22 @@ function Hero() {
             </div>
           </div>
           <section className='show'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem omnis nostrum dolorum molestiae consequuntur amet, minima quae incidunt perspiciatis voluptatibus rerum itaque nam perferendis. Corporis odit velit ipsum, maxime beatae eligendi ullam aliquid qui totam nesciunt doloribus error voluptatem vitae perferendis temporibus, sunt magnam, dolorum odio nam doloremque sit enim!
               <br />
+              <div className="card-wrapper">
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              <MenuCard />
+              </div>
+              
               {catValues.map((data) => {
                 return <p key={data}>{data}</p>
               })}
