@@ -128,8 +128,8 @@ function Hero() {
   const categories:Array<string> =  Array.from(new Set(catArray));
 
 
-  const min = 0;
-  const max = 1000;
+  const min = 50;
+  const max = 500;
   const [val1, setval1] = useState(0);
   const [val2, setval2] = useState(300);
   const [check, setcheck] = useState(false);
@@ -146,7 +146,16 @@ function Hero() {
       })
     }
     nw = nw.filter((food)=> categories.includes(food.category))
-    setfilterData(nw);
+    //  setfilterData((old):Array<Food> => nw);
+     setfilterData(nw);
+     setfilterData((old):Array<Food> => old);
+    /* setfilterData((old):Array<Food> => old.filter((food)=>{
+        return categories.includes(food.category)
+     }));*/
+   /* setfilterData(items => items.filter((food)=>{
+    
+        
+    }) )*/
   }
  
   const handleCat = (data:string) => {
@@ -156,7 +165,7 @@ function Hero() {
       }else{
         setcatValues(catValues.filter(x =>  x != data))
       }
-      filter(catValues,val1,val2,check)
+      // filter(catValues,val1,val2,check)
   }
  
 
@@ -179,6 +188,11 @@ function Hero() {
     setcheck(x)
     filter(catValues,val1,val2,check)
   }
+
+  useEffect(()=>{
+    filter(catValues,val1,val2,check)
+  },[catValues,check,val1,val2])
+
   return (
     <div className='hero-menu'>
         <nav>
