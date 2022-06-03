@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 
 import {Link, graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
@@ -7,10 +7,27 @@ import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import MenuCard from './MenuCard'
+import {GlobalContextData} from '../../context/GlobalContext'
 interface range_handler_type{
     target : {
       value : string
     }
+}
+
+interface Food {
+  name : string,
+  id : string,
+  category : string,
+  price : number,
+  image : IGatsbyImageData
+  veg: boolean
+}
+
+interface ContextInterface {
+  foodData: Array<string>,
+  setfoodData : (foodData : Array<string>) => void,
+  allFood : Array<Food>,
+  setallFood : (allFood : Array<Food>) => void
 }
 
 interface graphqlDataType{
@@ -38,6 +55,10 @@ interface catitemType{
       itemName: string
       price: number
       veg: boolean
+      image : {
+        id : string,
+        gatsbyImageData : IGatsbyImageData
+      }
   }
 }
 
@@ -49,6 +70,10 @@ interface checkbox_handler_type{
 
 function Hero() {
 
+  const contextData:ContextInterface = useContext(GlobalContextData);
+  const setfoodData = contextData.setallFood;
+  const allFood = contextData.allFood;
+
   const data = useStaticQuery(graphql`
     query MyCatQuery {
       allContentfulFood {
@@ -59,13 +84,34 @@ function Hero() {
             veg
             price
             category
+            image {
+              id
+              gatsbyImageData
+            }
           }
         }
       }
     }
   `)
 
-  // console.log(data);
+  const tempArr:Array<Food> = [];
+  data.allContentfulFood.edges.map((item:catitemType)=>{
+    tempArr.push({
+      name : item.node.itemName,
+      id : item.node.id,
+      category : item.node.category,
+      price : item.node.price,
+      image : item.node.image.gatsbyImageData,
+      veg: item.node.veg
+    })
+ })
+  
+
+  useEffect(()=>{
+    setfoodData(tempArr);
+  },[])
+
+
   const catArray:Array<string> = [];
   data.allContentfulFood.edges.map((item:catitemType)=>{
      catArray.push(item.node.category)
@@ -91,10 +137,6 @@ function Hero() {
       }
       
       console.log(t);
-      
-      
-      
-      
     
   }
  
@@ -179,23 +221,10 @@ function Hero() {
           <section className='show'>
               <br />
               <div className="card-wrapper">
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              <MenuCard />
-              </div>
-              
-              {catValues.map((data) => {
-                return <p key={data}>{data}</p>
+              {allFood.map((food:Food)=>{
+                return <MenuCard {...food} key={food.id} />
               })}
+              </div>
           </section>
         </main>
     </div>
