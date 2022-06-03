@@ -11,6 +11,11 @@ export interface range_handler_type{
       value : string
     }
 }
+export interface textinput_handler_type{
+    target : {
+      value : string
+    }
+}
 
 export interface ContextInterface {
     foodData: Array<string>,
@@ -120,3 +125,5 @@ export interface CardType{
     title: string;
     subtext: string;
   }
+
+  

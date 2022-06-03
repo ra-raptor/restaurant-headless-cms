@@ -5,6 +5,7 @@
 .hero-menu{
     padding: 0rem 10rem;
     width: 100%;
+    position: relative;
     .search{
         font-family: 'Yantramanav',
             sans-serif;
@@ -56,6 +57,34 @@
            }
        }
       
+    }
+    .serach-sugegstion{
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+        left: 0;
+        transform: translateY(-0.5rem);
+        // background: red;
+        padding: 0 10rem;
+        
+        .suggestion-wrapper{
+            border: 1px solid #7d797b;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        p{
+            font-family: 'Poppins',sans-serif;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-bottom: 1px solid #3535350d;
+            &:hover{
+                background-color: #b5b5b597;
+            }
+            &.not-found{
+                color: #3411be;
+            }
+        }
     }
     main{
         display: flex;

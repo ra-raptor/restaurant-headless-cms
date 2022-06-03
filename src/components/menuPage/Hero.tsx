@@ -5,8 +5,9 @@ import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 import MenuCard from './MenuCard'
 import {GlobalContextData} from '../../context/GlobalContext'
-import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType } from '../../utils/Interface'
+import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType, textinput_handler_type } from '../../utils/Interface'
 import MenuNav from './MenuNav'
+import SearchSuggestion from './SearchSuggestion'
 
 function Hero() {
 
@@ -49,6 +50,7 @@ function Hero() {
 
   useEffect(()=>{
     setfoodData(tempArr);
+    console.log(targetData);
   },[])
 
 
@@ -56,6 +58,15 @@ function Hero() {
   data.allContentfulFood.edges.map((item:catitemType)=>{
      catArray.push(item.node.category)
   })
+
+  const searchSuggestionArray:Array<string> = [];
+  data.allContentfulFood.edges.map((item:catitemType)=>{
+    const name = item.node.itemName;
+    name.split(' ').map(word => searchSuggestionArray.push(word.toLowerCase()))
+    searchSuggestionArray.push(name.toLowerCase())
+  })
+  const searchSuggestionArraySet = [... new Set(searchSuggestionArray)]
+  searchSuggestionArraySet.sort()
   
   const categories:Array<string> =  Array.from(new Set(catArray));
 
@@ -66,10 +77,31 @@ function Hero() {
   const [val2, setval2] = useState(300);
   const [check, setcheck] = useState(false);
   const [catValues, setcatValues] = useState<Array<string>>([])
+  const [searchSuggestionActive, setsearchSuggestionActive] = useState<Array<string>>([])
   const [filterData, setfilterData] = useState<Array<Food>>(tempArr)
 
-  const filter = (categories:Array<String>,low:number,high:number,veg:boolean) => {
-    let nw = allFood.filter((food)=>{
+  const [serachText, setserachText] = useState("")
+  const [serachVisible, setserachVisible] = useState(false)
+  
+  const [targetData, settargetData] = useState<Array<Food>>(tempArr)
+
+  const filter = (categories:Array<string>,low:number,high:number,veg:boolean) => {
+    let nw:Array<Food> = [];
+    if(serachText==""){
+        nw = allFood.filter((food)=>{
+          return (food.price >= low) && ( food.price <= high )
+      })
+      if(veg){
+        nw = nw.filter((food)=>{
+          return food.veg==veg
+        })
+      }
+      if(catValues.length > 0){
+        nw = nw.filter((food)=> categories.includes(food.category))
+      }
+      
+    }else{
+      nw = targetData.filter((food)=>{
         return (food.price >= low) && ( food.price <= high )
     })
     if(veg){
@@ -77,11 +109,30 @@ function Hero() {
         return food.veg==veg
       })
     }
-    nw = nw.filter((food)=> categories.includes(food.category))
+    if(catValues.length > 0){
+      nw = nw.filter((food)=> categories.includes(food.category))
+    }
+    }
+
+    
      setfilterData(nw);
-     setfilterData((old):Array<Food> => old);
   
   }
+
+  const search = () => {
+    const x = allFood.filter((food)=> food.name.toLowerCase().includes(serachText.toLowerCase()))
+    settargetData(x)
+    setfilterData(x)
+    setval1(0)
+    setval2(400)
+    setcheck(false)
+
+  }
+
+  
+
+ 
+  
  
   const handleCat = (data:string) => {
       const t = catValues.filter(x =>  x == data);
@@ -114,20 +165,60 @@ function Hero() {
     filter(catValues,val1,val2,check)
   }
 
+  const handleSearchInput = (e:textinput_handler_type) => {
+    setserachText(e.target.value)
+    setserachVisible(true)
+  }
+
   useEffect(()=>{
     filter(catValues,val1,val2,check)
   },[catValues,check,val1,val2])
 
+
+
+  useEffect(()=>{
+    if(serachText!=""){
+      
+      const t = searchSuggestionArraySet.filter(word => {
+        //console.log(`${word} x ${serachText}`);
+        
+       return word.includes(serachText.toLowerCase())
+      })
+      setsearchSuggestionActive(t);
+     /* console.log(serachText)
+      console.log(t)*/
+    }else{
+      setserachVisible(false)
+      setsearchSuggestionActive([])
+    }
+  },[serachText])
+
+
+  useEffect(()=>{
+    
+      const x = allFood.filter((food)=> food.name.toLowerCase().includes(serachText.toLowerCase()))
+    settargetData(x)
+    // console.log(targetData);
+    
+    
+  },[serachText])
+
+  const pickSerach = (word:string) => {
+    setserachText(word)
+    setserachVisible(false)
+  }
+  
   return (
     <div className='hero-menu'>
         <MenuNav />
         <section className='search'>
           <div className="input-container">
             <FaSearch />
-            <input type="text" placeholder='Search your favorite dish..'/>
+            <input type="text" value={serachText} onChange={handleSearchInput} placeholder='Search your favorite dish..'/>
           </div>
-          <button>Search</button>
+          <button onClick={search}>Search</button>
         </section>
+        {serachVisible && <SearchSuggestion arr={searchSuggestionActive} pickSerach=  {pickSerach} />}
         <main>
           <div className="sidebar">
             <div className='sidebar-heading'>
@@ -171,6 +262,9 @@ function Hero() {
           <section className='show'>
               <br />
               <div className="card-wrapper">
+                {filterData.length==0 && tempArr.map((food:Food) => {
+                  return <MenuCard {...food} key={food.id} />
+                })}
               {filterData.map((food:Food)=>{
                 return <MenuCard {...food} key={food.id} />
               })}
