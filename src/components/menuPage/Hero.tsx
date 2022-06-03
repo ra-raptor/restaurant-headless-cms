@@ -1,12 +1,12 @@
 import React,{useEffect,useState,useContext} from 'react'
-import {Link, graphql, useStaticQuery} from 'gatsby'
+import { graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
-import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
 import MenuCard from './MenuCard'
 import {GlobalContextData} from '../../context/GlobalContext'
 import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType } from '../../utils/Interface'
+import MenuNav from './MenuNav'
 
 function Hero() {
 
@@ -120,15 +120,7 @@ function Hero() {
 
   return (
     <div className='hero-menu'>
-        <nav>
-            <p>Chillax Canteen</p>
-            <ul>
-            <Link  to="/"><li >Home</li></Link>
-                <li className='active'>Menu</li>
-                {/* <li><input type="text" /></li> */}
-                <li><IoMdCart /></li>
-            </ul>
-        </nav>
+        <MenuNav />
         <section className='search'>
           <div className="input-container">
             <FaSearch />
