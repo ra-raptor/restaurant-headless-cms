@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "antd": "^4.20.6",
+    "framer-motion": "^6.3.10",
     "gatsby": "^4.6.1",
     "gatsby-plugin-image": "^2.6.0",
     "gatsby-plugin-manifest": "^4.6.0",

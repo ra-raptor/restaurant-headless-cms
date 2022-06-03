@@ -126,6 +126,7 @@ function Hero() {
     setval1(0)
     setval2(400)
     setcheck(false)
+    setserachVisible(false)
 
   }
 
