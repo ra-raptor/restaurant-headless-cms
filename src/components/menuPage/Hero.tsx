@@ -68,6 +68,14 @@ interface checkbox_handler_type{
   }
 }
 
+interface FilterInterface{
+  categories : Array<String>,
+  low : number,
+  high : number,
+  veg: boolean
+
+}
+
 function Hero() {
 
   const contextData:ContextInterface = useContext(GlobalContextData);
@@ -118,15 +126,28 @@ function Hero() {
   })
   
   const categories:Array<string> =  Array.from(new Set(catArray));
-  // console.log(categories);
-  
+
 
   const min = 0;
   const max = 1000;
   const [val1, setval1] = useState(0);
-  const [val2, setval2] = useState(0);
+  const [val2, setval2] = useState(300);
   const [check, setcheck] = useState(false);
   const [catValues, setcatValues] = useState<Array<string>>([])
+  const [filterData, setfilterData] = useState<Array<Food>>(tempArr)
+
+  const filter = (categories:Array<String>,low:number,high:number,veg:boolean) => {
+    let nw = allFood.filter((food)=>{
+        return (food.price >= low) && ( food.price <= high )
+    })
+    if(veg){
+      nw = nw.filter((food)=>{
+        return food.veg==veg
+      })
+    }
+    nw = nw.filter((food)=> categories.includes(food.category))
+    setfilterData(nw);
+  }
  
   const handleCat = (data:string) => {
       const t = catValues.filter(x =>  x == data);
@@ -135,9 +156,7 @@ function Hero() {
       }else{
         setcatValues(catValues.filter(x =>  x != data))
       }
-      
-      console.log(t);
-    
+      filter(catValues,val1,val2,check)
   }
  
 
@@ -146,19 +165,19 @@ function Hero() {
     if(x < val2){
       setval1(x);
     }
+    filter(catValues,val1,val2,check)
   }
   const handler2 = (e:range_handler_type) => {
     const x = parseInt(e.target.value)
     if(x > val1){
       setval2(x);
     }
+    filter(catValues,val1,val2,check)
   }
   const handleCheck = (e:checkbox_handler_type) => {
-    console.log(e);
-    
     const x = (e.target.checked)
-    console.log(x)
     setcheck(x)
+    filter(catValues,val1,val2,check)
   }
   return (
     <div className='hero-menu'>
@@ -221,7 +240,7 @@ function Hero() {
           <section className='show'>
               <br />
               <div className="card-wrapper">
-              {allFood.map((food:Food)=>{
+              {filterData.map((food:Food)=>{
                 return <MenuCard {...food} key={food.id} />
               })}
               </div>
