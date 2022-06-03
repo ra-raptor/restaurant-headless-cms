@@ -7,25 +7,8 @@ import Testinmonial from './testinmonial'
 import Footer from './footer'
 import {graphql, useStaticQuery,} from 'gatsby'
 import ProductCard from './productCard'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+import { CardType } from '../../utils/Interface';
 
-interface CardType{
-  node : {
-    itemName : string,
-    veg : boolean,
-    id : string,
-    nutrition : Array<string>,
-    price : number,
-    category : string,
-    image : {
-      id : string,
-      gatsbyImageData : IGatsbyImageData
-    }
-    subtext : {
-      raw : string
-    }
-  }
-}
 
 
 

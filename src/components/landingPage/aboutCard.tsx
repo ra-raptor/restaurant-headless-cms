@@ -1,12 +1,9 @@
 import React from 'react'
+import { AboutCardType } from '../../utils/Interface'
 
-interface CardType {
- 
-  title: string;
-  subtext: string;
-}
 
-function AboutCard({title,subtext}:CardType ){
+
+function AboutCard({title,subtext}:AboutCardType ){
     
   return (
     <div className="about-card">

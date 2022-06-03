@@ -1,80 +1,12 @@
 import React,{useEffect,useState,useContext} from 'react'
-
 import {Link, graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
 import { IoMdCart } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
 import { BsCaretDown } from 'react-icons/bs'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 import MenuCard from './MenuCard'
 import {GlobalContextData} from '../../context/GlobalContext'
-interface range_handler_type{
-    target : {
-      value : string
-    }
-}
-
-interface Food {
-  name : string,
-  id : string,
-  category : string,
-  price : number,
-  image : IGatsbyImageData
-  veg: boolean
-}
-
-interface ContextInterface {
-  foodData: Array<string>,
-  setfoodData : (foodData : Array<string>) => void,
-  allFood : Array<Food>,
-  setallFood : (allFood : Array<Food>) => void
-}
-
-interface graphqlDataType{
-  node : {
-    itemName : string,
-    veg : boolean,
-    id : string,
-    nutrition : Array<string>,
-    price : number,
-    category : string,
-    image : {
-      id : string,
-      gatsbyImageData : IGatsbyImageData
-    }
-    subtext : {
-      raw : string
-    }
-  }
-}
-
-interface catitemType{
-    node : {
-      category: string,
-      id: string
-      itemName: string
-      price: number
-      veg: boolean
-      image : {
-        id : string,
-        gatsbyImageData : IGatsbyImageData
-      }
-  }
-}
-
-interface checkbox_handler_type{
-  target : {
-    checked : boolean
-  }
-}
-
-interface FilterInterface{
-  categories : Array<String>,
-  low : number,
-  high : number,
-  veg: boolean
-
-}
+import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType } from '../../utils/Interface'
 
 function Hero() {
 
@@ -146,16 +78,9 @@ function Hero() {
       })
     }
     nw = nw.filter((food)=> categories.includes(food.category))
-    //  setfilterData((old):Array<Food> => nw);
      setfilterData(nw);
      setfilterData((old):Array<Food> => old);
-    /* setfilterData((old):Array<Food> => old.filter((food)=>{
-        return categories.includes(food.category)
-     }));*/
-   /* setfilterData(items => items.filter((food)=>{
-    
-        
-    }) )*/
+  
   }
  
   const handleCat = (data:string) => {
@@ -165,7 +90,7 @@ function Hero() {
       }else{
         setcatValues(catValues.filter(x =>  x != data))
       }
-      // filter(catValues,val1,val2,check)
+      
   }
  
 

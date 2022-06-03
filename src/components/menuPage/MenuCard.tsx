@@ -1,17 +1,8 @@
 import React from 'react'
 import './menucard.scss'
-import { IGatsbyImageData, GatsbyImage,getImage } from 'gatsby-plugin-image'
+import {  GatsbyImage,getImage } from 'gatsby-plugin-image'
 import { AiOutlinePlus } from 'react-icons/ai'
-
-interface Food {
-    name : string,
-    id : string,
-    category : string,
-    price : number,
-    image : IGatsbyImageData,
-    veg: boolean
-  }
-
+import { Food } from '../../utils/Interface';
 
 function MenuCard(food:Food) {
     const image = getImage(food.image)!;

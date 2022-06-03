@@ -1,29 +1,7 @@
-import { IGatsbyImageData, GatsbyImage,getImage,StaticImage } from 'gatsby-plugin-image'
+import {  GatsbyImage,getImage,StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { CardElType } from '../../utils/Interface';
 
-interface CardType{
-  node : {
-    itemName : string,
-    veg : boolean,
-    id : string,
-    price : number,
-    category : string,
-    subtext : {
-      raw : string
-    },
-    nutrition : Array<string>,
-    image : {
-      id : string,
-      gatsbyImageData : IGatsbyImageData
-    }
-    
-  }
-}
-
-interface CardElType{
-  card : CardType,
-  id : string
-}
 
 function ProductCard({card}:CardElType) {
   const image = getImage(card.node.image.gatsbyImageData)!; // ! for not null 
