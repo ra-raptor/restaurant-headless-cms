@@ -68,11 +68,15 @@
         font-size: 1.4rem;
         font-weight: 600;
         color: #FF0066;
+        &:hover{
+            background: #515151c3;
+            color: #fff;
+        }
     }
 }
 
 .card-wrapper{
     display: grid;
-    grid-template-columns: 1fr 1fr  1fr;
+    grid-template-columns: repeat(3,1fr);
     gap : 2rem;
 }
