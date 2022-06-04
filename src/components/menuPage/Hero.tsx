@@ -2,13 +2,13 @@ import React,{useEffect,useState,useContext} from 'react'
 import { graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
 import { FaSearch } from 'react-icons/fa'
-import { BsCaretDown } from 'react-icons/bs'
 import MenuCard from './MenuCard'
 import {GlobalContextData} from '../../context/GlobalContext'
-import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType, textinput_handler_type } from '../../utils/Interface'
+import { ContextInterface,Food,catitemType, textinput_handler_type } from '../../utils/Interface'
 import MenuNav from './MenuNav'
 import SearchSuggestion from './SearchSuggestion'
 import NotFound from './NotFound'
+import Sidebar from './Sidebar'
 
 function Hero() {
 
@@ -71,9 +71,6 @@ function Hero() {
   
   const categories:Array<string> =  Array.from(new Set(catArray));
 
-
-  const min = 50;
-  const max = 500;
   const [val1, setval1] = useState(0);
   const [val2, setval2] = useState(300);
   const [check, setcheck] = useState(false);
@@ -136,7 +133,7 @@ function Hero() {
  
   
  
-  const handleCat = (data:string) => {
+  /*const handleCat = (data:string) => {
       const t = catValues.filter(x =>  x == data);
       if(t.length == 0){
         setcatValues([...catValues,data])
@@ -165,7 +162,7 @@ function Hero() {
     const x = (e.target.checked)
     setcheck(x)
     filter(catValues,val1,val2,check)
-  }
+  }*/
 
   const handleSearchInput = (e:textinput_handler_type) => {
     setserachText(e.target.value)
@@ -222,7 +219,19 @@ function Hero() {
         </section>
         {serachVisible && <SearchSuggestion arr={searchSuggestionActive} pickSerach=  {pickSerach} />}
         <main>
-          <div className="sidebar">
+          <Sidebar 
+            val1={val1} 
+            val2={val2} 
+            catValues={catValues} 
+            categories={categories} 
+            check={check} 
+            filter={filter} 
+            setcatValues={setcatValues} 
+            setcheck={setcheck} 
+            setval1={setval1} 
+            setval2={setval2}
+          />
+         {/*<div className="sidebar">
             <div className='sidebar-heading'>
               <h4>Categories</h4>
               <BsCaretDown />
@@ -260,7 +269,7 @@ function Hero() {
             <p className="switch-text">{check ? 'Pure Veg' : 'Non Veg'}</p>
 
             </div>
-          </div>
+            </div>*/}
           <section className='show'>
           {filterData.length==0 && <NotFound />}
               <div className="card-wrapper">
