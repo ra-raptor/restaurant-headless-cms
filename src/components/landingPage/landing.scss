@@ -19,9 +19,15 @@
     .wrapper-hero{
         // overflow: hidden;
         background: url('../../images/blob.svg') no-repeat;
-        padding: 0 10rem 0 10rem;
+        padding: 0 3rem;
         background-position: -150% 50%;
         background-size: 140%;
+        @media only screen and (min-width:1000px) {
+            padding: 0rem 5rem;
+        }
+        @media only screen and (min-width:1600px) {
+            padding: 0rem 10rem;
+        }
     }
     main{
         display: flex;
@@ -227,7 +233,10 @@ nav{
             justify-content: center;            
             list-style-type: none;
             min-width: max-content;
-            padding: 1rem 5rem 1rem  5rem ;
+            padding: 1rem 2rem;
+            @media only screen and (min-width:1000px) {
+                padding: 1rem 5rem ;
+            }
             font-family: 'Quicksand',
             sans-serif;
             cursor: pointer;

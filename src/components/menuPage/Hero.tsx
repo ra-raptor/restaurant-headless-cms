@@ -8,6 +8,7 @@ import {GlobalContextData} from '../../context/GlobalContext'
 import { checkbox_handler_type,ContextInterface,Food,range_handler_type,catitemType, textinput_handler_type } from '../../utils/Interface'
 import MenuNav from './MenuNav'
 import SearchSuggestion from './SearchSuggestion'
+import NotFound from './NotFound'
 
 function Hero() {
 
@@ -261,7 +262,7 @@ function Hero() {
             </div>
           </div>
           <section className='show'>
-              <br />
+          {filterData.length==0 && <NotFound />}
               <div className="card-wrapper">
                 {filterData.length==0 && tempArr.map((food:Food) => {
                   return <MenuCard {...food} key={food.id} />
