@@ -5,6 +5,9 @@
     border-radius: 15px;
     padding-top: 1rem;
     position: relative;
+    @media only screen and (max-width:900px) {
+        min-width: 200px;
+    }
     .header{
         position: relative;
         left: -3px;
@@ -81,7 +84,7 @@
     display: grid;
     grid-template-columns: repeat(1,1fr);
     gap : 2rem;
-    @media only screen and (min-width: 900px) {
+    @media only screen and (min-width: 560px) {
         grid-template-columns: repeat(2,1fr);
     }
     @media only screen and (min-width: 1400px) {

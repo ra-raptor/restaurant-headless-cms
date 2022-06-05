@@ -9,9 +9,11 @@ import SearchSuggestion from './SearchSuggestion'
 import NotFound from './NotFound'
 import Sidebar from './Sidebar'
 import Search from './Search'
+import { useMediaQuery } from 'react-responsive'
+import SidebarSmall from './SidebarSmall'
 
 function Hero() {
-
+  const isBigScreen = useMediaQuery({ query: '(min-width: 800px)' })
   const contextData:ContextInterface = useContext(GlobalContextData);
   const setfoodData = contextData.setallFood;
   const allFood = contextData.allFood;
@@ -156,7 +158,7 @@ function Hero() {
         <Search search={search} serachText={ serachText} setserachText={setserachText} setserachVisible={setserachVisible} />
         {serachVisible && <SearchSuggestion arr={searchSuggestionActive} pickSerach=  {pickSerach} />}
         <main>
-          <Sidebar 
+          {isBigScreen ? <Sidebar 
             val1={val1} 
             val2={val2} 
             catValues={catValues} 
@@ -167,7 +169,19 @@ function Hero() {
             setcheck={setcheck} 
             setval1={setval1} 
             setval2={setval2}
-          />
+          /> : 
+          <SidebarSmall
+            val1={val1} 
+            val2={val2} 
+            catValues={catValues} 
+            categories={categories} 
+            check={check} 
+            filter={filter} 
+            setcatValues={setcatValues} 
+            setcheck={setcheck} 
+            setval1={setval1} 
+            setval2={setval2}
+          />}
           <section className='show'>
           {filterData.length==0 && <NotFound />}
               <div className="card-wrapper">
