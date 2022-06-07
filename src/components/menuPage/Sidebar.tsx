@@ -74,6 +74,8 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
         filter(catValues,val1,val2,check)
       }
       const [isCatOpen, setisCatOpen] = useState(true)
+      const [isPriceOpen, setisPriceOpen] = useState(true)
+      const [isVegOpen, setisVegOpen] = useState(true)
       const [checkList, setcheckList] = useState<Array<CListInterface>>([])
 
       useEffect(() =>{
@@ -120,31 +122,68 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className='sidebar-heading'>
+            <motion.div className='sidebar-heading'
+              initial={true}
+              onClick={() => setisPriceOpen(!isPriceOpen)}
+            >
               <h4>Price Range</h4>
-              <BsCaretDown />
-            </div>
-            <p className='slider-text'>₹ {val1} - ₹ {val2}</p>
-            <div className="slider-wrapper">
-              <div className="track"></div>
-              <input  value={val1} onChange={handler1} type="range" id="sl1" min={min} max={max}/>
-              <input type="range" id="sl2" min={min} max={max} value={val2} onChange={handler2} />
-            </div>
-            <div className="rangepadding"></div>
-            <div className='sidebar-heading'>
+              { isPriceOpen ? <BsCaretDown /> : <BsCaretUp /> }
+            </motion.div>
+            <AnimatePresence initial={true}>
+                  {
+                    isPriceOpen && (
+                      <>
+                      <p className='slider-text'>₹ {val1} - ₹ {val2}</p>
+                      <motion.div className="slider-wrapper" key="content"
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { opacity: 1, height: "auto" },
+                      collapsed: { opacity: 0, height: 0 }
+                    }}
+                    transition={{ duration: 0.08, ease: 'easeIn'}}
+                  >
+                        <div className="track"></div>
+                        <input  value={val1} onChange={handler1} type="range" id="sl1" min={min} max={max}/>
+                        <input type="range" id="sl2" min={min} max={max} value={val2} onChange={handler2} />
+                      </motion.div>
+                      <div className="rangepadding"></div>
+                      </>
+                    )
+                  }
+            </AnimatePresence>
+            <motion.div className='sidebar-heading'
+              initial={true}
+              onClick = {() => setisVegOpen(!isVegOpen)}
+              >
               <h4>Veg</h4>
-              <BsCaretDown />
-            </div>
-            <div className="switch-wrapper">
-            <label className="switch">
-                <input checked={check} onChange={handleCheck} type="checkbox" />
-                <div>
-                    <span></span>
-                </div>
-            </label>
-            <p className="switch-text">{check ? 'Pure Veg' : 'Non Veg'}</p>
-
-            </div>
+              { isVegOpen ? <BsCaretDown /> : <BsCaretUp /> }
+            </motion.div>
+              <AnimatePresence initial={true}>
+                {
+                  isVegOpen && (
+                    <motion.div className="switch-wrapper" key="content"
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { opacity: 1, height: "auto" },
+                      collapsed: { opacity: 0, height: 0 }
+                    }}
+                    transition={{ duration: 0.08, ease: 'easeIn'}}>
+                    <label className="switch">
+                        <input checked={check} onChange={handleCheck} type="checkbox" />
+                        <div>
+                            <span></span>
+                        </div>
+                    </label>
+                    <p className="switch-text">{check ? 'Pure Veg' : 'Non Veg'}</p>
+        
+                    </motion.div>
+                  )
+                }
+              </AnimatePresence>
           </div>
   )
 }
