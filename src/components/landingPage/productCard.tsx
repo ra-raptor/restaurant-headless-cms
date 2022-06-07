@@ -7,7 +7,6 @@ function ProductCard({card}:CardElType) {
   const image = getImage(card.node.image.gatsbyImageData)!; // ! for not null 
   const textsub = JSON.parse(card.node.subtext.raw)
   const nutrition = card.node.nutrition
-  console.log(card)
   
   return (
     <div className="card">

@@ -36,7 +36,6 @@ function Landing() {
     }
   }
   `)
-  console.log(data);
   const cards = data.allContentfulFood.edges
   
   return (

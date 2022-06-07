@@ -147,7 +147,6 @@ function Hero() {
       carr.push(x)
     })
     setcheckList(carr)
-    console.log(carr)
   },[])
 
   useEffect(()=>{

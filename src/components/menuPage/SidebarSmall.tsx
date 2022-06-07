@@ -37,7 +37,6 @@ const SidebarSmall = ({categories,catValues,val1,val2,check,setcatValues,setval1
               ? {...item, value : !item.value} 
               : item 
          ))
-      console.log(checkList);
         
     }
 
