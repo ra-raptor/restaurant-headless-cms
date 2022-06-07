@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import { BsCaretDown,BsCaretUp } from 'react-icons/bs'
 import { motion, AnimatePresence } from "framer-motion";
-import { range_handler_type,checkbox_handler_type } from '../../utils/Interface';
+import { range_handler_type,checkbox_handler_type, CListInterface } from '../../utils/Interface';
 
 interface SidebarInterface{
     categories : Array<string>,
@@ -13,20 +13,19 @@ interface SidebarInterface{
     setval1 : (val1 : number) => void,
     setval2 : (val2 : number) => void,
     setcheck : (check : boolean) => void,
-    filter : (categories:Array<string>,low:number,high:number,veg:boolean) => void
+    filter : (categories:Array<string>,low:number,high:number,veg:boolean) => void,
+    checkboxValue : (data : string) => boolean,
+    setcheckList : (data : Array<CListInterface>) => void,
+    checkList : Array<CListInterface>
+}
 
-}
-interface CListInterface{
-  category : string,
-  value : boolean
-}
 
 
 
 const min = 50;
 const max = 500;
 
-const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setval2,setcheck,filter}:SidebarInterface) => {
+const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setval2,setcheck,filter,checkboxValue,setcheckList,checkList}:SidebarInterface) => {
     const handleCat = (data:string) => {
         const t = catValues.filter(x =>  x == data);
         if(t.length == 0){
@@ -39,20 +38,13 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
               item.category === data 
               ? {...item, value : !item.value} 
               : item 
-      ))
+         ))
       console.log(checkList);
       
         
     }
 
-    const checkboxValue = (data:string) => {
-      const t = checkList.filter(item => item.category === data);
-      if(t.length > 0){
-        return t[0].value;
-      }else{
-        return false
-      }
-    }
+    
 
     const handler1 = (e:range_handler_type) => {
         const x = parseInt(e.target.value)
@@ -76,19 +68,9 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
       const [isCatOpen, setisCatOpen] = useState(true)
       const [isPriceOpen, setisPriceOpen] = useState(true)
       const [isVegOpen, setisVegOpen] = useState(true)
-      const [checkList, setcheckList] = useState<Array<CListInterface>>([])
+      
 
-      useEffect(() =>{
-        const carr:Array<CListInterface>= [];
-        categories.map((cat) => {
-          const x = {
-            category : cat,
-            value : false
-          }
-          carr.push(x)
-        })
-        setcheckList(carr)
-      },[])
+      
 
   return (
     <div className="sidebar">

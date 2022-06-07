@@ -3,7 +3,7 @@ import { graphql, useStaticQuery} from 'gatsby'
 import './menu.scss'
 import MenuCard from './MenuCard'
 import {GlobalContextData} from '../../context/GlobalContext'
-import { ContextInterface,Food,catitemType } from '../../utils/Interface'
+import { ContextInterface,Food,catitemType,CListInterface } from '../../utils/Interface'
 import MenuNav from './MenuNav'
 import SearchSuggestion from './SearchSuggestion'
 import NotFound from './NotFound'
@@ -81,6 +81,8 @@ function Hero() {
   const [serachText, setserachText] = useState("")
   const [serachVisible, setserachVisible] = useState(false)
   const [targetData, settargetData] = useState<Array<Food>>(tempArr)
+  const [checkList, setcheckList] = useState<Array<CListInterface>>([])
+
   const filter = (categories:Array<string>,low:number,high:number,veg:boolean) => {
     let nw:Array<Food> = [];
     if(serachText==""){
@@ -126,6 +128,28 @@ function Hero() {
 
   }
 
+  const checkboxValue = (data:string) => {
+    const t = checkList.filter(item => item.category === data);
+    if(t.length > 0){
+      return t[0].value;
+    }else{
+      return false
+    }
+  }
+
+  useEffect(() =>{
+    const carr:Array<CListInterface>= [];
+    categories.map((cat) => {
+      const x = {
+        category : cat,
+        value : false
+      }
+      carr.push(x)
+    })
+    setcheckList(carr)
+    console.log(carr)
+  },[])
+
   useEffect(()=>{
     filter(catValues,val1,val2,check)
   },[catValues,check,val1,val2])
@@ -169,6 +193,9 @@ function Hero() {
             setcheck={setcheck} 
             setval1={setval1} 
             setval2={setval2}
+            checkList={checkList}
+            checkboxValue={checkboxValue}
+            setcheckList={setcheckList}
           /> : 
           <SidebarSmall
             val1={val1} 
@@ -181,6 +208,9 @@ function Hero() {
             setcheck={setcheck} 
             setval1={setval1} 
             setval2={setval2}
+            checkList={checkList}
+            checkboxValue={checkboxValue}
+            setcheckList={setcheckList}
           />}
           <section className='show'>
           {filterData.length==0 && <NotFound />}

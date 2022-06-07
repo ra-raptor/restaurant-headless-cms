@@ -126,4 +126,7 @@ export interface CardType{
     subtext: string;
   }
 
-  
+  export interface CListInterface{
+    category : string,
+    value : boolean
+  }
