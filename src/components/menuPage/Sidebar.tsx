@@ -1,5 +1,6 @@
-import React from 'react'
-import { BsCaretDown } from 'react-icons/bs'
+import React,{useState,useEffect} from 'react'
+import { BsCaretDown,BsCaretUp } from 'react-icons/bs'
+import { motion, AnimatePresence } from "framer-motion";
 import { range_handler_type,checkbox_handler_type } from '../../utils/Interface';
 
 interface SidebarInterface{
@@ -15,6 +16,12 @@ interface SidebarInterface{
     filter : (categories:Array<string>,low:number,high:number,veg:boolean) => void
 
 }
+interface CListInterface{
+  category : string,
+  value : boolean
+}
+
+
 
 const min = 50;
 const max = 500;
@@ -27,7 +34,24 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
         }else{
           setcatValues(catValues.filter(x =>  x != data))
         }
+        setcheckList(
+          checkList.map(item => 
+              item.category === data 
+              ? {...item, value : !item.value} 
+              : item 
+      ))
+      console.log(checkList);
+      
         
+    }
+
+    const checkboxValue = (data:string) => {
+      const t = checkList.filter(item => item.category === data);
+      if(t.length > 0){
+        return t[0].value;
+      }else{
+        return false
+      }
     }
 
     const handler1 = (e:range_handler_type) => {
@@ -49,20 +73,53 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
         setcheck(x)
         filter(catValues,val1,val2,check)
       }
+      const [isCatOpen, setisCatOpen] = useState(true)
+      const [checkList, setcheckList] = useState<Array<CListInterface>>([])
+
+      useEffect(() =>{
+        const carr:Array<CListInterface>= [];
+        categories.map((cat) => {
+          const x = {
+            category : cat,
+            value : false
+          }
+          carr.push(x)
+        })
+        setcheckList(carr)
+      },[])
+
   return (
     <div className="sidebar">
-            <div className='sidebar-heading'>
+            <motion.div className='sidebar-heading'
+             initial={true}  
+            //  animate={{ backgroundColor: isCatOpen ? "#FF0088" : "#0055FF" }}
+             onClick={() => setisCatOpen(!isCatOpen)}
+            >
               <h4>Categories</h4>
-              <BsCaretDown />
-            </div>
-            <div className="category-wrapper">
-              {categories.map((cat)=>{
-                return <label key={cat} className="form-control">
-                  <input type="checkbox" onChange={()=>handleCat(cat)} name="checkbox"   />
-                  {cat}
-                </label>
-              })}
-            </div>
+              { isCatOpen ? <BsCaretDown /> : <BsCaretUp /> }
+            </motion.div>
+            <AnimatePresence initial={true}>
+              {isCatOpen && (
+                  <motion.div className="category-wrapper"
+                    key="content"
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { opacity: 1, height: "auto" },
+                      collapsed: { opacity: 0, height: 0 }
+                    }}
+                    transition={{ duration: 0.1, ease: 'easeIn'}}
+                  >
+                  {categories.map((cat)=>{
+                    return <label key={cat} className="form-control">
+                      <input type="checkbox" checked={checkboxValue(cat)} onChange={()=>handleCat(cat)} name="checkbox"   />
+                      {cat}
+                    </label>
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
             <div className='sidebar-heading'>
               <h4>Price Range</h4>
               <BsCaretDown />
