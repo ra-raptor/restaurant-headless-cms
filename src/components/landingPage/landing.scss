@@ -13,12 +13,15 @@
 .hero{
     background: url('../../images/pattern.svg');
     background-size: 100%;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     
     .wrapper-hero{
         // overflow: hidden;
         background: url('../../images/blob.svg') no-repeat;
+        @media only screen and (max-width: 700px) {
+            background: none;
+        }
         padding: 0 3rem;
         background-position: -150% 50%;
         background-size: 140%;
@@ -34,6 +37,9 @@
         article{
             // width: 90%;
             max-width: 50vw;
+            @media only screen and (max-width: 786px) {
+                max-width: 80vw;
+            }
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,10 +60,11 @@
             }
             .post{
                 width: 85%;
-                font-size: 1.1rem;
+                font-size: .9rem;
                 margin-bottom: 2rem;
                 @media only screen and (min-width: 800px) {
                     margin-bottom: 4rem;
+                    font-size: 1.1rem;
                 }
                 @media only screen and (min-width: 1000px) {
                     margin-bottom: 7.4rem;
@@ -67,6 +74,12 @@
             .cta{
                 display: flex;
                 gap : 2rem;
+                width: 100%;
+                @media only screen and (max-width: 500px) {
+                    flex-direction: column;
+                    gap : 0.5rem;
+                }
+                
                 a{
                     
                     // display: inline-block;
@@ -78,6 +91,9 @@
                         // background-color: #e2ab44;
                         height: 48px;
                         width: 10rem;
+                        @media only screen and (max-width: 500px) {
+                            width: 100%;
+                        }
                         border-radius: 15px;
                         &.primary{
                            background-color: #FF0066;
@@ -103,6 +119,7 @@
         }
         height: calc(100vh - 12vh);
         aside{
+
             display: grid;
             place-items: center;
             // height : 100vh;
@@ -110,6 +127,9 @@
                 transform: translateX(50%);
                 
                 // border: 1px solid #FF0066;
+            }
+            @media only screen and (max-width: 786px) {
+                display: none;
             }
         }
     }
@@ -128,7 +148,7 @@
     place-items: center;
     background-color: #FF0066;
     height: 100vh;
-    padding: 0 2rem 0 4rem;
+    padding: 0 2rem 0 2rem;
     @media screen and (min-width : 1200px) {
         padding: 0 2rem 0 2rem;
     }
@@ -141,13 +161,16 @@
         // align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 100vh;
-        padding: 4rem 2rem 4rem 4rem;
+        min-height: 100vh;
+        padding: 2rem 1rem;
         @media screen and (min-width : 1200px) {
             padding: 2rem 1rem;
         }
         h3{
             font-size:1.8rem;
+            @media only screen and (max-width: 900px) {
+                font-size : 1.5rem;
+            }
             color : white;
             font-family: 'Yantramanav',
             sans-serif;
@@ -159,19 +182,38 @@
                 display: flex;
                 align-items: center;
                 font-weight: 300;
+                font-family: 'Yantramanav',
+            sans-serif;
             }
             span{
                 font-size: 1.3rem;
+                @media only screen and (max-width: 900px) {
+                    font-size: 1.1rem;
+                }
+                margin-right: 1rem;
             }
             color : #fff;
             font-size: 1.3rem;
+            @media only screen and (max-width: 900px) {
+                font-size: 1.1rem;
+            }
                 }
         .cards{
             width : 100%;
             display: flex;
             justify-content: space-between;
             gap : 2.2rem;
+            @media only screen and (max-width: 900px) {
+                gap : 0.8rem;
+            }
             margin-top: 3rem;
+            @media screen and (max-width : 900px) {
+                flex-direction: column;
+            }
+
+            @media screen and (max-width : 800px) {
+                display: none;
+            }
             .card{
                 min-width: 100px;
                 @media screen and (min-width : 1200px) {
@@ -183,6 +225,10 @@
                 border-radius: 15px;
                 display : flex;
                 flex-direction : column;
+                @media screen and (max-width : 900px) {
+                    flex-direction: row;
+                    min-height: 80px;
+                }
                 align-items: center;
                 justify-content: space-around;
                 &:hover{
@@ -191,8 +237,18 @@
                 img{
                     width: 100px;
                     height: 100px;
+                    @media only screen and (max-width: 900px) {
+                        width: 60px;
+                         height: 60px;
+                         margin-left: 2rem;
+                         margin-right: 2rem;
+                    }
                 }
+
                 .about-card{
+                    @media only screen and (max-width: 900px) {
+                        flex: 7;
+                    }
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
@@ -211,6 +267,9 @@
                         color: #313131;
                         font-weight: 400;
                         padding-bottom: .8rem;
+                        @media screen and (max-width : 900px) {
+                            padding: 1rem;
+                        }
                     }
                     p{
                         font-family: 'Yantramanav',
@@ -229,7 +288,9 @@
         h1{
         color: white;
         font-size : 2.6rem;
-
+            @media only screen and (max-width: 900px) {
+                font-size : 2rem;
+            }
         }
     }
     .sideimage{
@@ -350,12 +411,21 @@ h1{
 .top{
     // background-color: green;
     padding: 0 10rem 0 10rem;
+    @media screen and (max-width : 900px) {
+        padding: 0 5rem;
+    }
+    @media screen and (max-width : 600px) {
+        padding: 0 3rem;
+    }
     h2{
         // font-family: 'Yantramanav',
         // sans-serif;
         font-family: 'Poppins',
         sans-serif;
         font-size: 2.4rem;
+        @media screen and (max-width : 900px) {
+            font-size: 1.8rem;
+        }
         text-align: center;
         font-weight: 400;
         position: relative;
@@ -378,6 +448,9 @@ h1{
     .card{
         border-radius: 15px;
         min-width: 300px;
+        @media only screen and (max-width:600px) {
+            min-width: 100px;
+        }
         cursor: pointer;
         min-height: 300px;
         display: flex;

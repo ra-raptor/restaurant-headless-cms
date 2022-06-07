@@ -1,5 +1,11 @@
 .testimonial-wrapper{
-    padding: 5rem 7rem;
+    padding: 1rem ;
+    @media only screen and (min-width: 500px) {
+        padding: 3rem 5rem;
+    }
+    @media only screen and (min-width: 800px) {
+        padding: 5rem 7rem;
+    }
     @media only screen and (min-width:1500px) {
         padding: 7rem 10rem;
     }
@@ -11,10 +17,13 @@
     h3{
         color: #ff0066;
         font-size: 1.4rem;
+        
+        
     }
     h4{
         padding: 1rem;
         font-size: 2rem;
+        
     }
     .hr{
         margin: 0 auto;
@@ -46,9 +55,15 @@
     // border: 1px solid #e94788;
     justify-content: space-between;
     padding: 2rem 4rem;
+    @media only screen and (max-width:800px) {
+        padding: 1rem 2rem;
+    }
     .image-wrapper{
         width: 250px;
         margin-right: 1.5rem;
+        @media only screen and (max-width:800px) {
+            width: 200px;
+        }
     }
     img{
         border-top-left-radius: 45px;
@@ -82,18 +97,33 @@
 }
 
 .footer{
-    padding: 5rem 10rem 0rem 10rem;
+    padding: 3rem 5rem;
+    padding-bottom: 0;
+    @media only screen and (min-width: 800px) {
+        padding: 5rem 7rem;
+        padding-bottom: 0;
+    }
+    @media only screen and (min-width:1500px) {
+        padding: 5rem 10rem;
+        padding-bottom: 0;
+    }
+    padding-bottom: 0;
     background-color: #313131;
     // background-color: #e94788;
     .grid{
         display: grid;
         gap: 1rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        
         @media only screen and (max-width:1300px) {
             grid-template-columns: 1fr 1fr ;
-            grid-column-gap: 3rem;
-            
+            grid-column-gap: 3rem; 
         }
+        @media only screen and (max-width: 600px) {
+            grid-template-columns: 1fr  ;
+            grid-column-gap: 3rem; 
+        }
+        
         
         font-family: 'Quicksand',
             sans-serif;
