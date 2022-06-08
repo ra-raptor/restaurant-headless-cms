@@ -45,7 +45,7 @@ function Landing() {
         <Services />
         <div className="wave3"> </div>
         
-        <div className='top'>
+        <div className='top' id="deals">
             <motion.h2 variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim}>Today's Deals</motion.h2>
             <div className="cards">
                 {cards.map((card:CardType)=> <ProductCard card={card} id={card.node.id} key={card.node.id} />)}

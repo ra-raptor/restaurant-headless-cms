@@ -11,7 +11,7 @@ function Hero() {
         <div className='hero'>
         <div className="wrapper-hero">
             <motion.nav variants={FadeInDown} initial="initial" animate="animate">
-                <p>Chillax Canteen</p>
+            <Link  to="/"><p>Chillax Canteen</p></Link>
                 <ul>
                     <li className='active'>Home</li>
                     <Link to="/menu"><li>Menu</li></Link>
@@ -28,7 +28,8 @@ function Hero() {
                 Order, takeout or dine  the best Indian, Italian and French Cusine in town. 
                  </motion.p>
                 <motion.div variants={FadeInDown} initial="initial" animate="animate" className='cta'>
-                    <a href="#"><div className='primary'>ORDER NOW</div></a><a href='#'><div className='secondary'>VIEW MENU</div></a>
+                    <Link to="#deals"><div className='primary'>ORDER NOW</div></Link>
+                    <Link to="/menu"><div className='secondary'>VIEW MENU</div></Link>
                 </motion.div>
 
                 
