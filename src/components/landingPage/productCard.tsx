@@ -1,7 +1,7 @@
 import {  GatsbyImage,getImage,StaticImage } from 'gatsby-plugin-image'
 import React,{useState,useContext,useEffect} from 'react'
 import { CardElType,ContextInterface,CartDataInterface } from '../../utils/Interface';
-import { FadeInUp,ViewPortAnim } from '../../utils/variants'
+import { FadeInUp,ViewPortAnim ,FadeInLeft,FadeInRight} from '../../utils/variants'
 import {motion} from 'framer-motion'
 import {GlobalContextData} from '../../context/GlobalContext'
 import { AiOutlinePlus,AiOutlineLine } from 'react-icons/ai'
@@ -60,18 +60,18 @@ useEffect(()=>{
 },[cartData])
 
 const cta = (
-  <div className='cart-btns'>
-      <div className="del" onClick={() => addorsub('SUB')}><AiOutlineLine /></div>
+  <div  className='cart-btns'>
+      <motion.div  variants={FadeInLeft} initial="initial" animate="animate" exit="exit" className="del" onClick={() => addorsub('SUB')}><AiOutlineLine /></motion.div>
       <div className="count">{count}</div>
-      <div className="plus"  onClick={() => addorsub('ADD')}><AiOutlinePlus /></div>
+      <motion.div variants={FadeInRight} initial="initial" animate="animate"   className="plus"  onClick={() => addorsub('ADD')}><AiOutlinePlus /></motion.div>
   </div>
 )
 
 const fullbtn = (
-  <div onClick={handleClick} className="add-to-cart">
+  <motion.div variants={FadeInUp} initial="initial" whileInView="animate" onClick={handleClick} className="add-to-cart">
             
             <p>Add To Cart</p>
-          </div>
+          </motion.div>
 )
 
   return (

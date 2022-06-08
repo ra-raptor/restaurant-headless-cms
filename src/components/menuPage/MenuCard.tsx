@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import {  GatsbyImage,getImage } from 'gatsby-plugin-image'
 import { AiOutlinePlus,AiOutlineLine } from 'react-icons/ai'
 import { ContextInterface, Food,CartDataInterface } from '../../utils/Interface';
-import { springVarient } from '../../utils/variants'
+import { FadeInLeft, FadeInRight, FadeInUp, springVarient } from '../../utils/variants'
 import {GlobalContextData} from '../../context/GlobalContext'
 function MenuCard(food:Food) {
     const image = getImage(food.image)!;
@@ -56,12 +56,17 @@ function MenuCard(food:Food) {
         }
     },[cartData])
 
+    const col = count > 0 ? "#FF0066" : "#353535"
+
+    const borderStyle = {
+        borderLeft : `3px solid ${col}`
+    }
 
     const cta = (
         <div className='cart-btns'>
-            <div className="del" onClick={() => addorsub('SUB')}><AiOutlineLine /></div>
+            <motion.div variants={FadeInLeft} initial="initial" animate="animate" exit="exit" className="del" onClick={() => addorsub('SUB')}><AiOutlineLine /></motion.div>
             <div className="count">{count}</div>
-            <div className="plus"  onClick={() => addorsub('ADD')}><AiOutlinePlus /></div>
+            <motion.div variants={FadeInRight} initial="initial" animate="animate" exit="exit" className="plus"  onClick={() => addorsub('ADD')}><AiOutlinePlus /></motion.div>
         </div>
     )
 
@@ -72,7 +77,7 @@ function MenuCard(food:Food) {
     exit="out"
     animate="out"
     layout>
-        <div className="header">
+        <div className="header" style={borderStyle}>
             {/* <p>Category</p> */}
             <p>{food.category}</p>
             <h3>{food.name}</h3>
@@ -87,7 +92,7 @@ function MenuCard(food:Food) {
                 <h4>₹ {food.price}</h4>
             </div>
             {/* <div className="add">ADD</div> */}
-            {count === 0 &&  <div  className="add" onClick={handleClick}><AiOutlinePlus />  </div>}
+            {count === 0 &&  <motion.div variants={FadeInUp} initial="initial" whileInView="animate"  className="add" onClick={handleClick}><AiOutlinePlus />  </motion.div>}
             {count !== 0 && cta }
         </div>
     </motion.div>
