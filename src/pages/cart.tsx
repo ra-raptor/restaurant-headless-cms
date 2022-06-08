@@ -5,6 +5,9 @@ import { ContextInterface} from '../utils/Interface';
 import { GlobalContextData } from '../context/GlobalContext';
 import CartItem from '../components/cartPage/CartItem';
 import { Link } from 'gatsby';
+import { motion } from 'framer-motion'
+import { FadeInDown,FadeInUp } from '../utils/variants';
+
 const cart = () => {
     const contextData:ContextInterface = useContext(GlobalContextData);
     const cartData = contextData.cartData;
@@ -19,7 +22,7 @@ const cart = () => {
 
   return (
       <>
-      <div className="cart-page-wrapper">
+      <motion.div variants={FadeInUp} initial="initial" animate="animate" className="cart-page-wrapper">
             <CartNav />
             <h2>Your Cart</h2>
             <p className='sub'>You have {cartData.length} items in your cart</p>
@@ -44,7 +47,7 @@ const cart = () => {
             </div></Link>
             )}
             
-    </div>
+    </motion.div>
         
     </>
   )
