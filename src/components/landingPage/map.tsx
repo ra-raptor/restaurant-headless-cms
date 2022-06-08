@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapContainer, TileLayer, ZoomControl,Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 function Map() {
     const markers =  [22.555438, 88.325566]
   return (
