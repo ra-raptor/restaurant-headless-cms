@@ -24,7 +24,7 @@ function Hero() {
                     <li className='active'>Home</li>
                     <Link to="/menu"><li>Menu</li></Link>
                     {/* <li><input type="text" /></li> */}
-                    <li><IoMdCart /><span>{count > 0 ? count : ""}</span></li>
+                    <Link to="/cart"><li><IoMdCart /><span>{count > 0 ? count : ""}</span></li></Link>
                 </ul>
             </motion.nav>
         <motion.main variants={staggeredContainer} initial="initial" animate="animate">

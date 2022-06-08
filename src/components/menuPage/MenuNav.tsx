@@ -18,7 +18,7 @@ const MenuNav = () => {
             <ul>
             <Link  to="/"><li >Home</li></Link>
                 <li className='active'>Menu</li>
-                <li><IoMdCart /><span>{count > 0 ? count : ""}</span></li>
+                <Link  to="/cart"><li><IoMdCart /><span>{count > 0 ? count : ""}</span></li></Link>
             </ul>
         </motion.nav>
   )
