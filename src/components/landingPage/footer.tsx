@@ -2,26 +2,27 @@ import React from 'react'
 import { GoLocation }from 'react-icons/go'
 import { IoCall }from 'react-icons/io5'
 import { MdEmail }from 'react-icons/md'
-import { MapContainer, TileLayer } from 'react-leaflet'
+// import { MapContainer, TileLayer } from 'react-leaflet'
 import Map from './map'
-
+import { FadeInDown, ViewPortAnim } from '../../utils/variants'
+import {motion} from 'framer-motion'
 function Footer() {
-  const buildMap = () => {
-    if (typeof window !== 'undefined') {
-      return (
-        <MapContainer center={[22.5448, 88.3426]} zoom={13}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-            </MapContainer>
-      )
-    }
-    return null;
-  }
+  // const buildMap = () => {
+  //   if (typeof window !== 'undefined') {
+  //     return (
+  //       <MapContainer center={[22.5448, 88.3426]} zoom={13}>
+  //             <TileLayer
+  //               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  //               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  //             />
+  //           </MapContainer>
+  //     )
+  //   }
+  //   return null;
+  // }
  
   return (
-    <div className='footer'>
+    <motion.div variants={FadeInDown} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='footer'>
       <div className="grid">
         <div className="text">
           <h2>Chillax</h2>
@@ -55,7 +56,7 @@ function Footer() {
         </div>
       </div>
       <div className="cop">&copy; 2022 Chillax Canteen</div> 
-    </div>
+    </motion.div>
   );
 }
 

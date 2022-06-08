@@ -2,7 +2,8 @@ import React from 'react'
 import './testimonial.scss'
 
 import {StaticImage} from 'gatsby-plugin-image'
-
+import { FadeInDown, FadeInUp,ViewPortAnim } from '../../utils/variants'
+import {motion} from 'framer-motion'
 
 import {users} from './users';
 function Testinmonial() {
@@ -10,9 +11,9 @@ function Testinmonial() {
 
   return (
     <div className='testimonial-wrapper'>
-        <h3>Testimonial</h3>
-        <h4>What our Customers say?</h4>
-        <div className='hr' ></div>
+        <motion.h3 variants={FadeInDown} initial="initial" whileInView="animate" viewport={ViewPortAnim}>Testimonial</motion.h3>
+        <motion.h4 variants={FadeInDown} initial="initial" whileInView="animate" viewport={ViewPortAnim}>What our Customers say?</motion.h4>
+        <motion.div variants={FadeInDown} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='hr' ></motion.div>
         <div className='card-wrapper'>
             {/* {users.map((user)=>{
                 const href = edges.filter((item:ItemType) => item.node.childImageSharp.fixed.originalName == user.url)
@@ -20,7 +21,7 @@ function Testinmonial() {
             })} */}
             {/* <TestimonialCard date='25th Jan 2022' text={text} name={} /> */}
 
-            <div className='testi-card'>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/41.jpg'/>
                 </div>
@@ -29,8 +30,8 @@ function Testinmonial() {
                     <div className="date">{users[0].date}</div>
                     <div className="review">{users[0].text}</div>
                 </div>
-            </div>
-            <div className='testi-card'>
+            </motion.div>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/92.jpg'/>
                 </div>
@@ -39,8 +40,8 @@ function Testinmonial() {
                     <div className="date">{users[1].date}</div>
                     <div className="review">{users[1].text}</div>
                 </div>
-            </div>
-            <div className='testi-card'>
+            </motion.div>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/72.jpg'/>
                 </div>
@@ -49,8 +50,8 @@ function Testinmonial() {
                     <div className="date">{users[2].date}</div>
                     <div className="review">{users[2].text}</div>
                 </div>
-            </div>
-            <div className='testi-card'>
+            </motion.div>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/76.jpg'/>
                 </div>
@@ -59,8 +60,8 @@ function Testinmonial() {
                     <div className="date">{users[3].date}</div>
                     <div className="review">{users[3].text}</div>
                 </div>
-            </div>
-            <div className='testi-card'>
+            </motion.div>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/1.jpg'/>
                 </div>
@@ -69,8 +70,8 @@ function Testinmonial() {
                     <div className="date">{users[4].date}</div>
                     <div className="review">{users[4].text}</div>
                 </div>
-            </div>
-            <div className='testi-card'>
+            </motion.div>
+            <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className='testi-card'>
                 <div className="image-wrapper">
                     <StaticImage alt='dp' src='../../images/testimonial-user-pics/50.jpg'/>
                 </div>
@@ -79,7 +80,7 @@ function Testinmonial() {
                     <div className="date">{users[5].date}</div>
                     <div className="review">{users[5].text}</div>
                 </div>
-            </div>
+            </motion.div>
         </div>
         <div></div>
     </div>

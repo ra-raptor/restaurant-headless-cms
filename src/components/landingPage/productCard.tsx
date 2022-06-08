@@ -1,15 +1,15 @@
 import {  GatsbyImage,getImage,StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { CardElType } from '../../utils/Interface';
-
-
+import { FadeInUp,ViewPortAnim } from '../../utils/variants'
+import {motion} from 'framer-motion'
 function ProductCard({card}:CardElType) {
   const image = getImage(card.node.image.gatsbyImageData)!; // ! for not null 
   const textsub = JSON.parse(card.node.subtext.raw)
   const nutrition = card.node.nutrition
   
   return (
-    <div className="card">
+    <motion.div variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim} className="card">
         
         <div className="img-wrapper"><GatsbyImage image={image} alt={card.node.itemName} /></div>
         <div className="desc-wrapper">
@@ -42,7 +42,7 @@ function ProductCard({card}:CardElType) {
           </div>
           
         </div>
-    </div>
+    </motion.div>
   )
 }
 

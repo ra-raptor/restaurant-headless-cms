@@ -36,6 +36,7 @@
     "react-images": "^1.2.0-beta.7",
     "react-leaflet": "^3.2.5",
     "react-responsive": "^9.0.0-beta.8",
+    "react-reveal": "^1.2.2",
     "sass": "^1.49.9"
   },
   "devDependencies": {

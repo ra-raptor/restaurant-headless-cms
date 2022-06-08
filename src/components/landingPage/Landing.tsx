@@ -8,7 +8,8 @@ import Footer from './footer'
 import {graphql, useStaticQuery,} from 'gatsby'
 import ProductCard from './productCard'
 import { CardType } from '../../utils/Interface';
-
+import {motion} from 'framer-motion'
+import { FadeInUp,ViewPortAnim } from '../../utils/variants'
 
 
 
@@ -45,7 +46,7 @@ function Landing() {
         <div className="wave3"> </div>
         
         <div className='top'>
-            <h2>Today's Deals</h2>
+            <motion.h2 variants={FadeInUp} initial="initial" whileInView="animate" viewport={ViewPortAnim}>Today's Deals</motion.h2>
             <div className="cards">
                 {cards.map((card:CardType)=> <ProductCard card={card} id={card.node.id} key={card.node.id} />)}
             </div>

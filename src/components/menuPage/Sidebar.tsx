@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { BsCaretDown,BsCaretUp } from 'react-icons/bs'
 import { motion, AnimatePresence } from "framer-motion";
 import { range_handler_type,checkbox_handler_type, CListInterface } from '../../utils/Interface';
+import { SidebarAnim } from '../../utils/variants';
 
 interface SidebarInterface{
     categories : Array<string>,
@@ -88,11 +89,7 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
                     initial="collapsed"
                     animate="open"
                     exit="collapsed"
-                    variants={{
-                      open: { opacity: 1, height: "auto" },
-                      collapsed: { opacity: 0, height: 0 }
-                    }}
-                    transition={{ duration: 0.1, ease: 'easeIn'}}
+                    variants={SidebarAnim}
                   >
                   {categories.map((cat)=>{
                     return <label key={cat} className="form-control">
@@ -119,11 +116,7 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
                     initial="collapsed"
                     animate="open"
                     exit="collapsed"
-                    variants={{
-                      open: { opacity: 1, height: "auto" },
-                      collapsed: { opacity: 0, height: 0 }
-                    }}
-                    transition={{ duration: 0.08, ease: 'easeIn'}}
+                    variants={SidebarAnim}
                   >
                         <div className="track"></div>
                         <input  value={val1} onChange={handler1} type="range" id="sl1" min={min} max={max}/>
@@ -148,10 +141,7 @@ const Sidebar = ({categories,catValues,val1,val2,check,setcatValues,setval1,setv
                     initial="collapsed"
                     animate="open"
                     exit="collapsed"
-                    variants={{
-                      open: { opacity: 1, height: "auto" },
-                      collapsed: { opacity: 0, height: 0 }
-                    }}
+                    variants={SidebarAnim}
                     transition={{ duration: 0.08, ease: 'easeIn'}}>
                     <label className="switch">
                         <input checked={check} onChange={handleCheck} type="checkbox" />
