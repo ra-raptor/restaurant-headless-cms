@@ -4,9 +4,7 @@ import GlobalContext from '../context/GlobalContext'
 
 function menu() {
   return (
-    <GlobalContext>
     <Hero />
-    </GlobalContext>
   )
 }
 

@@ -13,11 +13,9 @@ const displayName= (a: number , b: number):String => {
 // markup
 const IndexPage = () => {
   return (
-    <GlobalContext>
     <main >
       <Landing />
     </main>
-    </GlobalContext>
   )
 }
 

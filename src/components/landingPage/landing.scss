@@ -331,6 +331,9 @@ nav{
             cursor: pointer;
             position: relative;
             font-size: 1.2rem;
+            span{
+                padding: 0rem .6rem;
+            }
             @media only screen and (max-width:900px) {
                 font-size: 1rem;
                 padding: 1rem .8rem;
@@ -561,6 +564,30 @@ h1{
             border-radius: 15px;
             // border: 1px solid red;
             margin: 0 auto;
+        }
+    }
+    .cart-btns{
+        // width: 60%;
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Quicksand',
+            sans-serif;
+            font-size: 1.4rem;
+        font-weight: 600;
+        color: #FF0066;
+        padding: 0rem 5rem;
+        @media only screen and (max-width:700px) {
+            padding: 0rem 1rem;
+        }
+        .del,.plus{
+            // background-color: blue;
+            border: 1px solid #78425736;
+            padding: 0.5rem;
+            border-radius: 5px;
+            display: grid;
+            place-content: center;
         }
     }
     .add-to-cart{

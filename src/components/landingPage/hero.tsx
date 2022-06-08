@@ -1,12 +1,20 @@
-import React from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 import {StaticImage} from 'gatsby-plugin-image'
 import {Link} from 'gatsby'
 import {IoMdCart} from 'react-icons/io'
 import { motion } from 'framer-motion'
 import { FadeInDown, FadeInUp, staggeredContainer } from '../../utils/variants'
+import { ContextInterface } from '../../utils/Interface'
+import { GlobalContextData } from '../../context/GlobalContext'
 
 
 function Hero() {
+    const contextData:ContextInterface = useContext(GlobalContextData);
+    const cartData = contextData.cartData;
+    const [count, setcount] = useState(0);
+    useEffect(()=>{
+      setcount(cartData.length);
+  },[cartData])
   return (
         <div className='hero'>
         <div className="wrapper-hero">
@@ -16,7 +24,7 @@ function Hero() {
                     <li className='active'>Home</li>
                     <Link to="/menu"><li>Menu</li></Link>
                     {/* <li><input type="text" /></li> */}
-                    <li><IoMdCart /></li>
+                    <li><IoMdCart /><span>{count > 0 ? count : ""}</span></li>
                 </ul>
             </motion.nav>
         <motion.main variants={staggeredContainer} initial="initial" animate="animate">

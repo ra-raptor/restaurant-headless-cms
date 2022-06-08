@@ -175,7 +175,15 @@ export interface ContextInterface {
   setfoodData : (foodData : Array<string>) => void,
   allFood : Array<Food>,
   setallFood : (allFood : Array<Food>) => void
+  cartData: Array<CartDataInterface>,
+  setcartData: (cartData: Array<CartDataInterface>) => void
 }
 
 export interface Props {
+}
+
+export interface CartDataInterface{
+  id : string,
+  count : number,
+  totalPrice : number
 }
