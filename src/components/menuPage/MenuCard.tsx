@@ -1,13 +1,30 @@
 import React from 'react'
 import './menucard.scss'
+import { motion } from 'framer-motion'
 import {  GatsbyImage,getImage } from 'gatsby-plugin-image'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { Food } from '../../utils/Interface';
 
+const spring = {
+    type: "spring",
+    damping: 25,
+    stiffness: 120,
+  };
+  const animVarient = {
+    in: {
+      opacity: 0,
+    },
+    out: {
+      opacity: 1,
+    },
+  };
 function MenuCard(food:Food) {
     const image = getImage(food.image)!;
   return (
-    <div className='menu-card'>
+    <motion.div className='menu-card' transition={spring}
+    initial={animVarient.in}
+    animate={animVarient.out}
+    layout>
         <div className="header">
             {/* <p>Category</p> */}
             <p>{food.category}</p>
@@ -25,7 +42,7 @@ function MenuCard(food:Food) {
             {/* <div className="add">ADD</div> */}
             <div  className="add"><AiOutlinePlus /></div>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
