@@ -6,7 +6,7 @@ import { GlobalContextData } from '../context/GlobalContext';
 import CartItem from '../components/cartPage/CartItem';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion'
-import { FadeInDown,FadeInUp } from '../utils/variants';
+import { FadeInUp } from '../utils/variants';
 
 const cart = () => {
     const contextData:ContextInterface = useContext(GlobalContextData);
