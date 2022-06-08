@@ -160,3 +160,22 @@ export interface serachSugegstionInterface{
   arr : Array<string>,
   pickSerach : (word: string) => void
 }
+
+export interface Food {
+  name : string,
+  id : string,
+  category : string,
+  price : number,
+  image : IGatsbyImageData,
+  veg: boolean
+}
+
+export interface ContextInterface {
+  foodData: Array<string>,
+  setfoodData : (foodData : Array<string>) => void,
+  allFood : Array<Food>,
+  setallFood : (allFood : Array<Food>) => void
+}
+
+export interface Props {
+}

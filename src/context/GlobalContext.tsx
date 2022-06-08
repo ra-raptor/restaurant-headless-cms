@@ -1,25 +1,5 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React,{useState,createContext} from 'react'
-
-
-interface Food {
-  name : string,
-  id : string,
-  category : string,
-  price : number,
-  image : IGatsbyImageData,
-  veg: boolean
-}
-
-interface ContextInterface {
-  foodData: Array<string>,
-  setfoodData : (foodData : Array<string>) => void,
-  allFood : Array<Food>,
-  setallFood : (allFood : Array<Food>) => void
-}
-
-
-
+import { ContextInterface, Food, Props } from '../utils/Interface';
 
 const defaultData:ContextInterface = {
   foodData: [],
@@ -29,13 +9,6 @@ const defaultData:ContextInterface = {
 }
 
 export const GlobalContextData = createContext<ContextInterface>(defaultData);
-
-interface Props {
-}
-
-
-
-
 
 const  GlobalContext:React.FC<Props> = ({children}) => {
     const [foodData, setfoodData] = useState<Array<string>>([]);
