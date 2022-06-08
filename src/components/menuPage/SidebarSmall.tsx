@@ -1,29 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import { BsCaretDown,BsCaretUp } from 'react-icons/bs'
-import { range_handler_type,checkbox_handler_type,CListInterface } from '../../utils/Interface';
+import { range_handler_type,checkbox_handler_type,CListInterface,SidebarInterface } from '../../utils/Interface';
 import { motion, AnimatePresence } from "framer-motion";
 import { SidebarAnim } from '../../utils/variants';
 const min = 50;
 const max = 500;
 
-
-
-interface SidebarInterface{
-    categories : Array<string>,
-    catValues : Array<string>,
-    val1 : number,
-    val2 : number,
-    check : boolean,
-    setcatValues : (catValues : Array<string>) => void,
-    setval1 : (val1 : number) => void,
-    setval2 : (val2 : number) => void,
-    setcheck : (check : boolean) => void,
-    filter : (categories:Array<string>,low:number,high:number,veg:boolean) => void,
-    checkboxValue : (data : string) => boolean,
-    setcheckList : (data : Array<CListInterface>) => void,
-    checkList : Array<CListInterface>
-
-}
 const SidebarSmall = ({categories,catValues,val1,val2,check,setcatValues,setval1,setval2,setcheck,filter,checkboxValue,setcheckList,checkList}:SidebarInterface) => {
     const handleCat = (data:string) => {
         const t = catValues.filter(x =>  x == data);

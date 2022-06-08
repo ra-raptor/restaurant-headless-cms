@@ -129,4 +129,34 @@ export interface CardType{
   export interface CListInterface{
     category : string,
     value : boolean
+
   }
+
+  export interface SearchInterface{
+    serachText: string,
+    search : () => void,
+    setserachText : (searchText : string) => void
+    setserachVisible : (serachVisible : boolean) => void
+}
+
+export interface SidebarInterface{
+  categories : Array<string>,
+  catValues : Array<string>,
+  val1 : number,
+  val2 : number,
+  check : boolean,
+  setcatValues : (catValues : Array<string>) => void,
+  setval1 : (val1 : number) => void,
+  setval2 : (val2 : number) => void,
+  setcheck : (check : boolean) => void,
+  filter : (categories:Array<string>,low:number,high:number,veg:boolean) => void,
+  checkboxValue : (data : string) => boolean,
+  setcheckList : (data : Array<CListInterface>) => void,
+  checkList : Array<CListInterface>
+
+}
+
+export interface serachSugegstionInterface{
+  arr : Array<string>,
+  pickSerach : (word: string) => void
+}

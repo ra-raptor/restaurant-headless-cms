@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface serachSugegstionInterface{
-    arr : Array<string>,
-    pickSerach : (word: string) => void
-}
+import { serachSugegstionInterface } from '../../utils/Interface';
 
 const SearchSuggestion = ({arr,pickSerach}:serachSugegstionInterface) => {
     
