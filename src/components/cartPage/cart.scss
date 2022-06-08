@@ -26,7 +26,7 @@
         margin-bottom: 1rem;
     }
     .cart-item{
-        border: 1px solid #1e1e1e55;
+        border: 1px solid #1e1e1e1f;
         border-radius: 0.5rem;
         padding: 2rem;
         display: flex;
@@ -110,6 +110,7 @@
                 margin-right: 2rem;
                 margin-left: 1rem;
                 display: grid;
+                min-width: 120px;
                 place-items: center;
                 .totalPrice{
                     font-family: 'Poppins',
@@ -117,6 +118,7 @@
                     font-weight : 400;
                     font-size: 1.8rem;
                     color: #1e1e1e;
+                    
                 }
                 .remove{
                     font-family: 'Poppins',
@@ -141,7 +143,7 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     .checkout{
-        width: 275px;
+        width: 320px;
         // background-color: #1e1e1e;
         margin-right: 4rem;
         .price{
